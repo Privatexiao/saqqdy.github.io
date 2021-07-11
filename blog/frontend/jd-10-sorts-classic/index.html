@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en-US">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width,initial-scale=1" />
+		<title>js的10大经典排序算法 | 上岸QQ的鱼</title>
+		<meta name="generator" content="VuePress 1.8.2" />
+		 <meta name="description" content="我的前端开发日记"> <link rel="preload" href="/assets/css/0.styles.e5536188.css" as="style"><link rel="preload" href="/assets/js/app.1247472c.js" as="script"><link rel="preload" href="/assets/js/2.727eec30.js" as="script"><link rel="preload" href="/assets/js/304.9f3c39ab.js" as="script"><link rel="prefetch" href="/assets/js/10.ce20a5ef.js"><link rel="prefetch" href="/assets/js/100.e1c435a1.js"><link rel="prefetch" href="/assets/js/1000.9eaa7f9a.js"><link rel="prefetch" href="/assets/js/1001.c5c54b6e.js"><link rel="prefetch" href="/assets/js/1002.657940d6.js"><link rel="prefetch" href="/assets/js/1003.8e66b158.js"><link rel="prefetch" href="/assets/js/1004.f31561fe.js"><link rel="prefetch" href="/assets/js/1005.f87132c7.js"><link rel="prefetch" href="/assets/js/1006.25e52559.js"><link rel="prefetch" href="/assets/js/1007.6f513a68.js"><link rel="prefetch" href="/assets/js/1008.62ccef3d.js"><link rel="prefetch" href="/assets/js/1009.14e603f1.js"><link rel="prefetch" href="/assets/js/101.780a8ef6.js"><link rel="prefetch" href="/assets/js/1010.8d19588f.js"><link rel="prefetch" href="/assets/js/1011.f6dfb171.js"><link rel="prefetch" href="/assets/js/1012.f5480b0d.js"><link rel="prefetch" href="/assets/js/1013.56d9a8d1.js"><link rel="prefetch" href="/assets/js/1014.5a913e63.js"><link rel="prefetch" href="/assets/js/1015.e867e62f.js"><link rel="prefetch" href="/assets/js/1016.19b63843.js"><link rel="prefetch" href="/assets/js/1017.12130dc5.js"><link rel="prefetch" href="/assets/js/1018.149c4a39.js"><link rel="prefetch" href="/assets/js/1019.1fc0e55c.js"><link rel="prefetch" href="/assets/js/102.b5049853.js"><link rel="prefetch" href="/assets/js/1020.67d2d0b6.js"><link rel="prefetch" href="/assets/js/1021.bb4ff3ff.js"><link rel="prefetch" href="/assets/js/1022.23234966.js"><link rel="prefetch" href="/assets/js/1023.37fcfe1b.js"><link rel="prefetch" href="/assets/js/1024.33bc9b75.js"><link rel="prefetch" href="/assets/js/1025.7c082667.js"><link rel="prefetch" href="/assets/js/1026.e4cac4d9.js"><link rel="prefetch" href="/assets/js/1027.00c2af7d.js"><link rel="prefetch" href="/assets/js/1028.d3490bff.js"><link rel="prefetch" href="/assets/js/1029.40f27fac.js"><link rel="prefetch" href="/assets/js/103.3b060d76.js"><link rel="prefetch" href="/assets/js/1030.b4dc2c81.js"><link rel="prefetch" href="/assets/js/1031.21e36cb5.js"><link rel="prefetch" href="/assets/js/1032.9fac28dd.js"><link rel="prefetch" href="/assets/js/1033.0d3e27c5.js"><link rel="prefetch" href="/assets/js/1034.9a108569.js"><link rel="prefetch" href="/assets/js/1035.51c37ef5.js"><link rel="prefetch" href="/assets/js/1036.d125bc17.js"><link rel="prefetch" href="/assets/js/1037.0d755867.js"><link rel="prefetch" href="/assets/js/1038.0350e164.js"><link rel="prefetch" href="/assets/js/1039.8b0e39f4.js"><link rel="prefetch" href="/assets/js/104.e15e8a4c.js"><link rel="prefetch" href="/assets/js/1040.f6f9f79b.js"><link rel="prefetch" href="/assets/js/1041.287a925c.js"><link rel="prefetch" href="/assets/js/1042.4a054f15.js"><link rel="prefetch" href="/assets/js/1043.2f6ce4c3.js"><link rel="prefetch" href="/assets/js/1044.6a189135.js"><link rel="prefetch" href="/assets/js/1045.493d130b.js"><link rel="prefetch" href="/assets/js/1046.08133424.js"><link rel="prefetch" href="/assets/js/1047.a93015ee.js"><link rel="prefetch" href="/assets/js/1048.33a86221.js"><link rel="prefetch" href="/assets/js/1049.e314e934.js"><link rel="prefetch" href="/assets/js/105.f6a5e6db.js"><link rel="prefetch" href="/assets/js/1050.ff3d430c.js"><link rel="prefetch" href="/assets/js/1051.fe59697f.js"><link rel="prefetch" href="/assets/js/1052.1fcdd29d.js"><link rel="prefetch" href="/assets/js/1053.f58fd6a0.js"><link rel="prefetch" href="/assets/js/1054.f19db3db.js"><link rel="prefetch" href="/assets/js/1055.3c95726d.js"><link rel="prefetch" href="/assets/js/1056.ebdec1c9.js"><link rel="prefetch" href="/assets/js/1057.82b5e733.js"><link rel="prefetch" href="/assets/js/106.6011e801.js"><link rel="prefetch" href="/assets/js/107.b050e5c9.js"><link rel="prefetch" href="/assets/js/108.923acd4f.js"><link rel="prefetch" href="/assets/js/109.9db8705b.js"><link rel="prefetch" href="/assets/js/11.02a703bf.js"><link rel="prefetch" href="/assets/js/110.73983419.js"><link rel="prefetch" href="/assets/js/111.95b44667.js"><link rel="prefetch" href="/assets/js/112.adb1bb93.js"><link rel="prefetch" href="/assets/js/113.cfb63b5a.js"><link rel="prefetch" href="/assets/js/114.0a510043.js"><link rel="prefetch" href="/assets/js/115.986c55f7.js"><link rel="prefetch" href="/assets/js/116.49302b4f.js"><link rel="prefetch" href="/assets/js/117.a807e448.js"><link rel="prefetch" href="/assets/js/118.000a8ed3.js"><link rel="prefetch" href="/assets/js/119.4ffb2ae8.js"><link rel="prefetch" href="/assets/js/12.feefd687.js"><link rel="prefetch" href="/assets/js/120.f7a2539b.js"><link rel="prefetch" href="/assets/js/121.80d02b53.js"><link rel="prefetch" href="/assets/js/122.68374cd4.js"><link rel="prefetch" href="/assets/js/123.0d0b3156.js"><link rel="prefetch" href="/assets/js/124.2a5f3110.js"><link rel="prefetch" href="/assets/js/125.37f334d9.js"><link rel="prefetch" href="/assets/js/126.efb748ff.js"><link rel="prefetch" href="/assets/js/127.a3c2792a.js"><link rel="prefetch" href="/assets/js/128.19b5f541.js"><link rel="prefetch" href="/assets/js/129.e1279474.js"><link rel="prefetch" href="/assets/js/13.35922fbc.js"><link rel="prefetch" href="/assets/js/130.4565a793.js"><link rel="prefetch" href="/assets/js/131.12659da6.js"><link rel="prefetch" href="/assets/js/132.656579da.js"><link rel="prefetch" href="/assets/js/133.a73ab11b.js"><link rel="prefetch" href="/assets/js/134.6363e951.js"><link rel="prefetch" href="/assets/js/135.8abcd20f.js"><link rel="prefetch" href="/assets/js/136.9ee29304.js"><link rel="prefetch" href="/assets/js/137.40e73305.js"><link rel="prefetch" href="/assets/js/138.887c68fd.js"><link rel="prefetch" href="/assets/js/139.c3bf7f2d.js"><link rel="prefetch" href="/assets/js/14.db50ba50.js"><link rel="prefetch" href="/assets/js/140.81ec8cfc.js"><link rel="prefetch" href="/assets/js/141.43bccaaa.js"><link rel="prefetch" href="/assets/js/142.f3c0ce1c.js"><link rel="prefetch" href="/assets/js/143.c7e3e634.js"><link rel="prefetch" href="/assets/js/144.8dbae536.js"><link rel="prefetch" href="/assets/js/145.09dc1d1d.js"><link rel="prefetch" href="/assets/js/146.aece2960.js"><link rel="prefetch" href="/assets/js/147.448f4305.js"><link rel="prefetch" href="/assets/js/148.0087b03e.js"><link rel="prefetch" href="/assets/js/149.480bcf08.js"><link rel="prefetch" href="/assets/js/15.05500907.js"><link rel="prefetch" href="/assets/js/150.be6a51ac.js"><link rel="prefetch" href="/assets/js/151.0de7bcb8.js"><link rel="prefetch" href="/assets/js/152.ff06af16.js"><link rel="prefetch" href="/assets/js/153.dbfe81a9.js"><link rel="prefetch" href="/assets/js/154.df3dadab.js"><link rel="prefetch" href="/assets/js/155.f3bf6e7a.js"><link rel="prefetch" href="/assets/js/156.9c43929f.js"><link rel="prefetch" href="/assets/js/157.b72167b6.js"><link rel="prefetch" href="/assets/js/158.0a6d5065.js"><link rel="prefetch" href="/assets/js/159.9bb590b9.js"><link rel="prefetch" href="/assets/js/16.e0c21ada.js"><link rel="prefetch" href="/assets/js/160.e3577d50.js"><link rel="prefetch" href="/assets/js/161.94cc04f0.js"><link rel="prefetch" href="/assets/js/162.bdbf34ec.js"><link rel="prefetch" href="/assets/js/163.60081c20.js"><link rel="prefetch" href="/assets/js/164.11c25e4c.js"><link rel="prefetch" href="/assets/js/165.7c1f613d.js"><link rel="prefetch" href="/assets/js/166.951ad9af.js"><link rel="prefetch" href="/assets/js/167.0d1ea7d4.js"><link rel="prefetch" href="/assets/js/168.928bf2cd.js"><link rel="prefetch" href="/assets/js/169.86d07336.js"><link rel="prefetch" href="/assets/js/17.9802a79c.js"><link rel="prefetch" href="/assets/js/170.f722dc8a.js"><link rel="prefetch" href="/assets/js/171.0d60283b.js"><link rel="prefetch" href="/assets/js/172.df11f02f.js"><link rel="prefetch" href="/assets/js/173.a0ebdcb0.js"><link rel="prefetch" href="/assets/js/174.8e86ffaa.js"><link rel="prefetch" href="/assets/js/175.c8be45e1.js"><link rel="prefetch" href="/assets/js/176.9fa10816.js"><link rel="prefetch" href="/assets/js/177.cf18e5a5.js"><link rel="prefetch" href="/assets/js/178.c04a59d1.js"><link rel="prefetch" href="/assets/js/179.c59c2c83.js"><link rel="prefetch" href="/assets/js/18.b061c6d2.js"><link rel="prefetch" href="/assets/js/180.7f836b55.js"><link rel="prefetch" href="/assets/js/181.57d4bf2b.js"><link rel="prefetch" href="/assets/js/182.70f9c90a.js"><link rel="prefetch" href="/assets/js/183.f10b0b6d.js"><link rel="prefetch" href="/assets/js/184.a6b1014b.js"><link rel="prefetch" href="/assets/js/185.200bbe78.js"><link rel="prefetch" href="/assets/js/186.3c10f05b.js"><link rel="prefetch" href="/assets/js/187.0f9591a5.js"><link rel="prefetch" href="/assets/js/188.e64a4f63.js"><link rel="prefetch" href="/assets/js/189.18ac90ba.js"><link rel="prefetch" href="/assets/js/19.389fb544.js"><link rel="prefetch" href="/assets/js/190.abeeff92.js"><link rel="prefetch" href="/assets/js/191.406cf9af.js"><link rel="prefetch" href="/assets/js/192.ba80896b.js"><link rel="prefetch" href="/assets/js/193.2daa5863.js"><link rel="prefetch" href="/assets/js/194.17899fe4.js"><link rel="prefetch" href="/assets/js/195.dba0c29a.js"><link rel="prefetch" href="/assets/js/196.055db836.js"><link rel="prefetch" href="/assets/js/197.72220734.js"><link rel="prefetch" href="/assets/js/198.177ec5e9.js"><link rel="prefetch" href="/assets/js/199.c8cfedc2.js"><link rel="prefetch" href="/assets/js/20.aa46af5b.js"><link rel="prefetch" href="/assets/js/200.2695bb23.js"><link rel="prefetch" href="/assets/js/201.3c5cc4da.js"><link rel="prefetch" href="/assets/js/202.fa4af74f.js"><link rel="prefetch" href="/assets/js/203.788f98ae.js"><link rel="prefetch" href="/assets/js/204.89c11d2f.js"><link rel="prefetch" href="/assets/js/205.45a3b8b8.js"><link rel="prefetch" href="/assets/js/206.875a6431.js"><link rel="prefetch" href="/assets/js/207.dfaf7653.js"><link rel="prefetch" href="/assets/js/208.d3796cc9.js"><link rel="prefetch" href="/assets/js/209.761a7cf2.js"><link rel="prefetch" href="/assets/js/21.df9f721c.js"><link rel="prefetch" href="/assets/js/210.2766cd50.js"><link rel="prefetch" href="/assets/js/211.eebe8f27.js"><link rel="prefetch" href="/assets/js/212.282e5787.js"><link rel="prefetch" href="/assets/js/213.5d6ec840.js"><link rel="prefetch" href="/assets/js/214.18348bda.js"><link rel="prefetch" href="/assets/js/215.beb87e2d.js"><link rel="prefetch" href="/assets/js/216.989ba15f.js"><link rel="prefetch" href="/assets/js/217.1ca3e71b.js"><link rel="prefetch" href="/assets/js/218.3a634ff4.js"><link rel="prefetch" href="/assets/js/219.59612b48.js"><link rel="prefetch" href="/assets/js/22.188c9f31.js"><link rel="prefetch" href="/assets/js/220.3f5f363f.js"><link rel="prefetch" href="/assets/js/221.a67bbfe8.js"><link rel="prefetch" href="/assets/js/222.eb0dbbea.js"><link rel="prefetch" href="/assets/js/223.37bdc8dc.js"><link rel="prefetch" href="/assets/js/224.9c8a6599.js"><link rel="prefetch" href="/assets/js/225.25a5cd37.js"><link rel="prefetch" href="/assets/js/226.94a53f2a.js"><link rel="prefetch" href="/assets/js/227.ad8eae86.js"><link rel="prefetch" href="/assets/js/228.8b7f0f19.js"><link rel="prefetch" href="/assets/js/229.856129be.js"><link rel="prefetch" href="/assets/js/23.3a9bf673.js"><link rel="prefetch" href="/assets/js/230.408ff621.js"><link rel="prefetch" href="/assets/js/231.f97b1682.js"><link rel="prefetch" href="/assets/js/232.dcad9da9.js"><link rel="prefetch" href="/assets/js/233.7be3fd9f.js"><link rel="prefetch" href="/assets/js/234.a3ee6d38.js"><link rel="prefetch" href="/assets/js/235.4aa84a5e.js"><link rel="prefetch" href="/assets/js/236.31c9474a.js"><link rel="prefetch" href="/assets/js/237.b962c631.js"><link rel="prefetch" href="/assets/js/238.6404fffd.js"><link rel="prefetch" href="/assets/js/239.72a9a1c8.js"><link rel="prefetch" href="/assets/js/24.babff1c6.js"><link rel="prefetch" href="/assets/js/240.6b6a027b.js"><link rel="prefetch" href="/assets/js/241.59d96189.js"><link rel="prefetch" href="/assets/js/242.0f2f4611.js"><link rel="prefetch" href="/assets/js/243.fb3db65f.js"><link rel="prefetch" href="/assets/js/244.152e191e.js"><link rel="prefetch" href="/assets/js/245.33764b1f.js"><link rel="prefetch" href="/assets/js/246.2c3e3734.js"><link rel="prefetch" href="/assets/js/247.bf00bea1.js"><link rel="prefetch" href="/assets/js/248.c428c0a8.js"><link rel="prefetch" href="/assets/js/249.5cdfa5da.js"><link rel="prefetch" href="/assets/js/25.393f0a36.js"><link rel="prefetch" href="/assets/js/250.8da30ea5.js"><link rel="prefetch" href="/assets/js/251.1ff3ead5.js"><link rel="prefetch" href="/assets/js/252.673aa1c5.js"><link rel="prefetch" href="/assets/js/253.8f391991.js"><link rel="prefetch" href="/assets/js/254.34e48fb3.js"><link rel="prefetch" href="/assets/js/255.327f0602.js"><link rel="prefetch" href="/assets/js/256.fd98ccfe.js"><link rel="prefetch" href="/assets/js/257.1f1d01d2.js"><link rel="prefetch" href="/assets/js/258.24ddd38a.js"><link rel="prefetch" href="/assets/js/259.dc4e465c.js"><link rel="prefetch" href="/assets/js/26.8a51dadd.js"><link rel="prefetch" href="/assets/js/260.8bc24caf.js"><link rel="prefetch" href="/assets/js/261.fb40e9eb.js"><link rel="prefetch" href="/assets/js/262.c2890323.js"><link rel="prefetch" href="/assets/js/263.1d5679de.js"><link rel="prefetch" href="/assets/js/264.88db140e.js"><link rel="prefetch" href="/assets/js/265.236f9a2a.js"><link rel="prefetch" href="/assets/js/266.31ae3d1a.js"><link rel="prefetch" href="/assets/js/267.f3c9932f.js"><link rel="prefetch" href="/assets/js/268.143a9440.js"><link rel="prefetch" href="/assets/js/269.fbc10e05.js"><link rel="prefetch" href="/assets/js/27.2225bc59.js"><link rel="prefetch" href="/assets/js/270.ce56441b.js"><link rel="prefetch" href="/assets/js/271.bc93a2ea.js"><link rel="prefetch" href="/assets/js/272.acfb7cca.js"><link rel="prefetch" href="/assets/js/273.91951779.js"><link rel="prefetch" href="/assets/js/274.c15853db.js"><link rel="prefetch" href="/assets/js/275.5521fa4a.js"><link rel="prefetch" href="/assets/js/276.959177bc.js"><link rel="prefetch" href="/assets/js/277.8d5c7c58.js"><link rel="prefetch" href="/assets/js/278.912f4164.js"><link rel="prefetch" href="/assets/js/279.09ea0dd1.js"><link rel="prefetch" href="/assets/js/28.27959759.js"><link rel="prefetch" href="/assets/js/280.e6f2d0d8.js"><link rel="prefetch" href="/assets/js/281.1b05c3c9.js"><link rel="prefetch" href="/assets/js/282.0aa312f8.js"><link rel="prefetch" href="/assets/js/283.e7406125.js"><link rel="prefetch" href="/assets/js/284.9e06dab0.js"><link rel="prefetch" href="/assets/js/285.baf20074.js"><link rel="prefetch" href="/assets/js/286.9e0dc3c8.js"><link rel="prefetch" href="/assets/js/287.74d53241.js"><link rel="prefetch" href="/assets/js/288.dddc531d.js"><link rel="prefetch" href="/assets/js/289.d05ea201.js"><link rel="prefetch" href="/assets/js/29.8fbd3777.js"><link rel="prefetch" href="/assets/js/290.8c7930a9.js"><link rel="prefetch" href="/assets/js/291.2988a4a0.js"><link rel="prefetch" href="/assets/js/292.5fe7dac4.js"><link rel="prefetch" href="/assets/js/293.cef8f230.js"><link rel="prefetch" href="/assets/js/294.204e8b99.js"><link rel="prefetch" href="/assets/js/295.b9a34113.js"><link rel="prefetch" href="/assets/js/296.742325b5.js"><link rel="prefetch" href="/assets/js/297.23976759.js"><link rel="prefetch" href="/assets/js/298.1e30d2a2.js"><link rel="prefetch" href="/assets/js/299.c062648f.js"><link rel="prefetch" href="/assets/js/3.a72ffb54.js"><link rel="prefetch" href="/assets/js/30.304b00e8.js"><link rel="prefetch" href="/assets/js/300.9921351d.js"><link rel="prefetch" href="/assets/js/301.1019e31c.js"><link rel="prefetch" href="/assets/js/302.f20ec31d.js"><link rel="prefetch" href="/assets/js/303.da7dc2ca.js"><link rel="prefetch" href="/assets/js/305.a9dac2c1.js"><link rel="prefetch" href="/assets/js/306.8b52d3ab.js"><link rel="prefetch" href="/assets/js/307.0a7ecaea.js"><link rel="prefetch" href="/assets/js/308.e38688a1.js"><link rel="prefetch" href="/assets/js/309.37c024d5.js"><link rel="prefetch" href="/assets/js/31.09811086.js"><link rel="prefetch" href="/assets/js/310.6c014bfe.js"><link rel="prefetch" href="/assets/js/311.89619fa3.js"><link rel="prefetch" href="/assets/js/312.78e0cb07.js"><link rel="prefetch" href="/assets/js/313.0bb7ebd3.js"><link rel="prefetch" href="/assets/js/314.d9a4a94e.js"><link rel="prefetch" href="/assets/js/315.6bb1d70b.js"><link rel="prefetch" href="/assets/js/316.80e036d7.js"><link rel="prefetch" href="/assets/js/317.e0d7298f.js"><link rel="prefetch" href="/assets/js/318.b81f4ac8.js"><link rel="prefetch" href="/assets/js/319.cb53316c.js"><link rel="prefetch" href="/assets/js/32.c44cff11.js"><link rel="prefetch" href="/assets/js/320.9c4ad573.js"><link rel="prefetch" href="/assets/js/321.3c07347e.js"><link rel="prefetch" href="/assets/js/322.c78ded3e.js"><link rel="prefetch" href="/assets/js/323.cc746314.js"><link rel="prefetch" href="/assets/js/324.e9d93477.js"><link rel="prefetch" href="/assets/js/325.700cbbfb.js"><link rel="prefetch" href="/assets/js/326.681bd117.js"><link rel="prefetch" href="/assets/js/327.38eee66e.js"><link rel="prefetch" href="/assets/js/328.e9e94b96.js"><link rel="prefetch" href="/assets/js/329.f0ee8c34.js"><link rel="prefetch" href="/assets/js/33.2b4a3497.js"><link rel="prefetch" href="/assets/js/330.22422819.js"><link rel="prefetch" href="/assets/js/331.e08bdd36.js"><link rel="prefetch" href="/assets/js/332.ba669cd4.js"><link rel="prefetch" href="/assets/js/333.bb116f06.js"><link rel="prefetch" href="/assets/js/334.eb223a24.js"><link rel="prefetch" href="/assets/js/335.e8975cc0.js"><link rel="prefetch" href="/assets/js/336.0f977310.js"><link rel="prefetch" href="/assets/js/337.70406fda.js"><link rel="prefetch" href="/assets/js/338.9e372d0d.js"><link rel="prefetch" href="/assets/js/339.772b7543.js"><link rel="prefetch" href="/assets/js/34.1ae63b34.js"><link rel="prefetch" href="/assets/js/340.94c29d1a.js"><link rel="prefetch" href="/assets/js/341.55a6b41f.js"><link rel="prefetch" href="/assets/js/342.0c337088.js"><link rel="prefetch" href="/assets/js/343.ed333fd3.js"><link rel="prefetch" href="/assets/js/344.d68c5a93.js"><link rel="prefetch" href="/assets/js/345.30330619.js"><link rel="prefetch" href="/assets/js/346.9157d5d4.js"><link rel="prefetch" href="/assets/js/347.8bbefa9a.js"><link rel="prefetch" href="/assets/js/348.b8a33e1b.js"><link rel="prefetch" href="/assets/js/349.26bcb424.js"><link rel="prefetch" href="/assets/js/35.f36284d0.js"><link rel="prefetch" href="/assets/js/350.e28b62b5.js"><link rel="prefetch" href="/assets/js/351.53e8574f.js"><link rel="prefetch" href="/assets/js/352.0f640b90.js"><link rel="prefetch" href="/assets/js/353.d7c6307b.js"><link rel="prefetch" href="/assets/js/354.2a29b141.js"><link rel="prefetch" href="/assets/js/355.946d041e.js"><link rel="prefetch" href="/assets/js/356.3107f8b1.js"><link rel="prefetch" href="/assets/js/357.97bccbe5.js"><link rel="prefetch" href="/assets/js/358.95df2d93.js"><link rel="prefetch" href="/assets/js/359.89bb64c1.js"><link rel="prefetch" href="/assets/js/36.1402db29.js"><link rel="prefetch" href="/assets/js/360.0ea60ef4.js"><link rel="prefetch" href="/assets/js/361.3102ce93.js"><link rel="prefetch" href="/assets/js/362.22d72f43.js"><link rel="prefetch" href="/assets/js/363.20c07d72.js"><link rel="prefetch" href="/assets/js/364.a5206ef6.js"><link rel="prefetch" href="/assets/js/365.40bce10a.js"><link rel="prefetch" href="/assets/js/366.188f3e8a.js"><link rel="prefetch" href="/assets/js/367.d7241fc3.js"><link rel="prefetch" href="/assets/js/368.7a53cb25.js"><link rel="prefetch" href="/assets/js/369.358eb325.js"><link rel="prefetch" href="/assets/js/37.c99c9671.js"><link rel="prefetch" href="/assets/js/370.390e0636.js"><link rel="prefetch" href="/assets/js/371.ec0d362a.js"><link rel="prefetch" href="/assets/js/372.29a8f8bc.js"><link rel="prefetch" href="/assets/js/373.d3c47c09.js"><link rel="prefetch" href="/assets/js/374.5292c832.js"><link rel="prefetch" href="/assets/js/375.625c2a80.js"><link rel="prefetch" href="/assets/js/376.439b9983.js"><link rel="prefetch" href="/assets/js/377.53d70ac0.js"><link rel="prefetch" href="/assets/js/378.f46fb470.js"><link rel="prefetch" href="/assets/js/379.3b97ab38.js"><link rel="prefetch" href="/assets/js/38.9a07e041.js"><link rel="prefetch" href="/assets/js/380.512819f4.js"><link rel="prefetch" href="/assets/js/381.847e0b8b.js"><link rel="prefetch" href="/assets/js/382.f1865399.js"><link rel="prefetch" href="/assets/js/383.928e22cd.js"><link rel="prefetch" href="/assets/js/384.4ef9a4f1.js"><link rel="prefetch" href="/assets/js/385.ee5dc795.js"><link rel="prefetch" href="/assets/js/386.df62c5c4.js"><link rel="prefetch" href="/assets/js/387.d5774f4e.js"><link rel="prefetch" href="/assets/js/388.3cd1119a.js"><link rel="prefetch" href="/assets/js/389.d5f765f4.js"><link rel="prefetch" href="/assets/js/39.178ce6e4.js"><link rel="prefetch" href="/assets/js/390.ec7158c9.js"><link rel="prefetch" href="/assets/js/391.1d8780b1.js"><link rel="prefetch" href="/assets/js/392.3cbfc39e.js"><link rel="prefetch" href="/assets/js/393.07baf8b7.js"><link rel="prefetch" href="/assets/js/394.3d00d5f3.js"><link rel="prefetch" href="/assets/js/395.ac5c36ae.js"><link rel="prefetch" href="/assets/js/396.c3b86e2f.js"><link rel="prefetch" href="/assets/js/397.18731803.js"><link rel="prefetch" href="/assets/js/398.80c2fe00.js"><link rel="prefetch" href="/assets/js/399.6dda5d67.js"><link rel="prefetch" href="/assets/js/4.52b1d174.js"><link rel="prefetch" href="/assets/js/40.49aeb93f.js"><link rel="prefetch" href="/assets/js/400.2deb31c0.js"><link rel="prefetch" href="/assets/js/401.7a9e0662.js"><link rel="prefetch" href="/assets/js/402.6cc33e81.js"><link rel="prefetch" href="/assets/js/403.6c987739.js"><link rel="prefetch" href="/assets/js/404.107d0b2f.js"><link rel="prefetch" href="/assets/js/405.f52adfa9.js"><link rel="prefetch" href="/assets/js/406.45a53d76.js"><link rel="prefetch" href="/assets/js/407.8879f885.js"><link rel="prefetch" href="/assets/js/408.58373485.js"><link rel="prefetch" href="/assets/js/409.fe54f9ca.js"><link rel="prefetch" href="/assets/js/41.a4220853.js"><link rel="prefetch" href="/assets/js/410.3e6bf58f.js"><link rel="prefetch" href="/assets/js/411.b0160fdf.js"><link rel="prefetch" href="/assets/js/412.39c31494.js"><link rel="prefetch" href="/assets/js/413.f5e8eac2.js"><link rel="prefetch" href="/assets/js/414.9a4c9ff1.js"><link rel="prefetch" href="/assets/js/415.2ad1496f.js"><link rel="prefetch" href="/assets/js/416.c3b7f68e.js"><link rel="prefetch" href="/assets/js/417.660020e5.js"><link rel="prefetch" href="/assets/js/418.e75695e3.js"><link rel="prefetch" href="/assets/js/419.4e388e84.js"><link rel="prefetch" href="/assets/js/42.b1a60163.js"><link rel="prefetch" href="/assets/js/420.b66f8849.js"><link rel="prefetch" href="/assets/js/421.c64edd6b.js"><link rel="prefetch" href="/assets/js/422.602e4087.js"><link rel="prefetch" href="/assets/js/423.7310cfb4.js"><link rel="prefetch" href="/assets/js/424.a9320616.js"><link rel="prefetch" href="/assets/js/425.3e1a81b1.js"><link rel="prefetch" href="/assets/js/426.839d8a1c.js"><link rel="prefetch" href="/assets/js/427.810b7c11.js"><link rel="prefetch" href="/assets/js/428.c814d5ba.js"><link rel="prefetch" href="/assets/js/429.bff2f3e7.js"><link rel="prefetch" href="/assets/js/43.ec630f75.js"><link rel="prefetch" href="/assets/js/430.d37b4f5f.js"><link rel="prefetch" href="/assets/js/431.cb6202e0.js"><link rel="prefetch" href="/assets/js/432.7ace31a2.js"><link rel="prefetch" href="/assets/js/433.0d775ebd.js"><link rel="prefetch" href="/assets/js/434.e011bc6e.js"><link rel="prefetch" href="/assets/js/435.2b2a1620.js"><link rel="prefetch" href="/assets/js/436.bc848e78.js"><link rel="prefetch" href="/assets/js/437.ae1cb341.js"><link rel="prefetch" href="/assets/js/438.ebf44f77.js"><link rel="prefetch" href="/assets/js/439.e4a826cd.js"><link rel="prefetch" href="/assets/js/44.b3ea867d.js"><link rel="prefetch" href="/assets/js/440.47e31f9c.js"><link rel="prefetch" href="/assets/js/441.a3427283.js"><link rel="prefetch" href="/assets/js/442.11a0ae1b.js"><link rel="prefetch" href="/assets/js/443.c19328e8.js"><link rel="prefetch" href="/assets/js/444.7c308092.js"><link rel="prefetch" href="/assets/js/445.594ab6f0.js"><link rel="prefetch" href="/assets/js/446.ba7a6a8a.js"><link rel="prefetch" href="/assets/js/447.47d12285.js"><link rel="prefetch" href="/assets/js/448.8802556f.js"><link rel="prefetch" href="/assets/js/449.c66256e6.js"><link rel="prefetch" href="/assets/js/45.447b66a4.js"><link rel="prefetch" href="/assets/js/450.ad21c7b7.js"><link rel="prefetch" href="/assets/js/451.a5511916.js"><link rel="prefetch" href="/assets/js/452.f7376ffc.js"><link rel="prefetch" href="/assets/js/453.498a3bb4.js"><link rel="prefetch" href="/assets/js/454.0a63fb8b.js"><link rel="prefetch" href="/assets/js/455.e0dbb0d2.js"><link rel="prefetch" href="/assets/js/456.dfd201eb.js"><link rel="prefetch" href="/assets/js/457.1ea27e20.js"><link rel="prefetch" href="/assets/js/458.411d3ab9.js"><link rel="prefetch" href="/assets/js/459.91ff9c74.js"><link rel="prefetch" href="/assets/js/46.9e2f7fc9.js"><link rel="prefetch" href="/assets/js/460.c39dd6ef.js"><link rel="prefetch" href="/assets/js/461.fb520be8.js"><link rel="prefetch" href="/assets/js/462.2b53162a.js"><link rel="prefetch" href="/assets/js/463.d36aa403.js"><link rel="prefetch" href="/assets/js/464.475e8c6e.js"><link rel="prefetch" href="/assets/js/465.920854dd.js"><link rel="prefetch" href="/assets/js/466.e70916b1.js"><link rel="prefetch" href="/assets/js/467.cd276e32.js"><link rel="prefetch" href="/assets/js/468.18c3f287.js"><link rel="prefetch" href="/assets/js/469.54a85cab.js"><link rel="prefetch" href="/assets/js/47.e05d052f.js"><link rel="prefetch" href="/assets/js/470.069c03d8.js"><link rel="prefetch" href="/assets/js/471.0b8f3a6e.js"><link rel="prefetch" href="/assets/js/472.786d23f5.js"><link rel="prefetch" href="/assets/js/473.96efa652.js"><link rel="prefetch" href="/assets/js/474.6615a295.js"><link rel="prefetch" href="/assets/js/475.3a71a7bb.js"><link rel="prefetch" href="/assets/js/476.2f91dc3d.js"><link rel="prefetch" href="/assets/js/477.d2972b34.js"><link rel="prefetch" href="/assets/js/478.0e1ca725.js"><link rel="prefetch" href="/assets/js/479.fb70d4e5.js"><link rel="prefetch" href="/assets/js/48.978049cb.js"><link rel="prefetch" href="/assets/js/480.8f4e6fb6.js"><link rel="prefetch" href="/assets/js/481.b5091e90.js"><link rel="prefetch" href="/assets/js/482.148426f2.js"><link rel="prefetch" href="/assets/js/483.0a635d81.js"><link rel="prefetch" href="/assets/js/484.9bbe95dc.js"><link rel="prefetch" href="/assets/js/485.f89bdc72.js"><link rel="prefetch" href="/assets/js/486.5f2cae40.js"><link rel="prefetch" href="/assets/js/487.95870e8b.js"><link rel="prefetch" href="/assets/js/488.96bdde08.js"><link rel="prefetch" href="/assets/js/489.16ab68da.js"><link rel="prefetch" href="/assets/js/49.633e113e.js"><link rel="prefetch" href="/assets/js/490.43e2bc7b.js"><link rel="prefetch" href="/assets/js/491.32280fa0.js"><link rel="prefetch" href="/assets/js/492.1dc0165a.js"><link rel="prefetch" href="/assets/js/493.89552656.js"><link rel="prefetch" href="/assets/js/494.a7c724a2.js"><link rel="prefetch" href="/assets/js/495.8d7c47aa.js"><link rel="prefetch" href="/assets/js/496.9dbb997d.js"><link rel="prefetch" href="/assets/js/497.2429d2de.js"><link rel="prefetch" href="/assets/js/498.30280f49.js"><link rel="prefetch" href="/assets/js/499.20175888.js"><link rel="prefetch" href="/assets/js/5.45077176.js"><link rel="prefetch" href="/assets/js/50.13487936.js"><link rel="prefetch" href="/assets/js/500.f2ca2c3a.js"><link rel="prefetch" href="/assets/js/501.d90b44ad.js"><link rel="prefetch" href="/assets/js/502.576820aa.js"><link rel="prefetch" href="/assets/js/503.422ea809.js"><link rel="prefetch" href="/assets/js/504.00eaa66a.js"><link rel="prefetch" href="/assets/js/505.1b5996c1.js"><link rel="prefetch" href="/assets/js/506.5b94362f.js"><link rel="prefetch" href="/assets/js/507.5d2d2ae9.js"><link rel="prefetch" href="/assets/js/508.eb3cb714.js"><link rel="prefetch" href="/assets/js/509.006cc664.js"><link rel="prefetch" href="/assets/js/51.b9f737a0.js"><link rel="prefetch" href="/assets/js/510.8f66ea83.js"><link rel="prefetch" href="/assets/js/511.9b30e398.js"><link rel="prefetch" href="/assets/js/512.c5da0424.js"><link rel="prefetch" href="/assets/js/513.7456b267.js"><link rel="prefetch" href="/assets/js/514.7a7c60a2.js"><link rel="prefetch" href="/assets/js/515.d7789dbb.js"><link rel="prefetch" href="/assets/js/516.e7c1f5ef.js"><link rel="prefetch" href="/assets/js/517.08103cca.js"><link rel="prefetch" href="/assets/js/518.8c0904f9.js"><link rel="prefetch" href="/assets/js/519.6bfd74f4.js"><link rel="prefetch" href="/assets/js/52.d36beb30.js"><link rel="prefetch" href="/assets/js/520.c194ffa8.js"><link rel="prefetch" href="/assets/js/521.d8f865d9.js"><link rel="prefetch" href="/assets/js/522.820568f6.js"><link rel="prefetch" href="/assets/js/523.af279a9c.js"><link rel="prefetch" href="/assets/js/524.b0b409b9.js"><link rel="prefetch" href="/assets/js/525.2c998e94.js"><link rel="prefetch" href="/assets/js/526.796872ae.js"><link rel="prefetch" href="/assets/js/527.aaf1981b.js"><link rel="prefetch" href="/assets/js/528.a2d50a52.js"><link rel="prefetch" href="/assets/js/529.ae99c1fb.js"><link rel="prefetch" href="/assets/js/53.bc8914be.js"><link rel="prefetch" href="/assets/js/530.f58047ea.js"><link rel="prefetch" href="/assets/js/531.fb31cc25.js"><link rel="prefetch" href="/assets/js/532.fe3e5db4.js"><link rel="prefetch" href="/assets/js/533.5a38a55c.js"><link rel="prefetch" href="/assets/js/534.e82e041b.js"><link rel="prefetch" href="/assets/js/535.bc93f987.js"><link rel="prefetch" href="/assets/js/536.aa71298c.js"><link rel="prefetch" href="/assets/js/537.f679d0dd.js"><link rel="prefetch" href="/assets/js/538.689b2caa.js"><link rel="prefetch" href="/assets/js/539.c6cd1d56.js"><link rel="prefetch" href="/assets/js/54.bfefd62f.js"><link rel="prefetch" href="/assets/js/540.6e400830.js"><link rel="prefetch" href="/assets/js/541.786143a0.js"><link rel="prefetch" href="/assets/js/542.a6f81dd0.js"><link rel="prefetch" href="/assets/js/543.5e660abc.js"><link rel="prefetch" href="/assets/js/544.9f956725.js"><link rel="prefetch" href="/assets/js/545.c94f2458.js"><link rel="prefetch" href="/assets/js/546.8517ba17.js"><link rel="prefetch" href="/assets/js/547.af7369d3.js"><link rel="prefetch" href="/assets/js/548.fc129aa6.js"><link rel="prefetch" href="/assets/js/549.66cca7ba.js"><link rel="prefetch" href="/assets/js/55.15b83845.js"><link rel="prefetch" href="/assets/js/550.1bf16beb.js"><link rel="prefetch" href="/assets/js/551.60e5dfa5.js"><link rel="prefetch" href="/assets/js/552.e92b6eb7.js"><link rel="prefetch" href="/assets/js/553.30d6db45.js"><link rel="prefetch" href="/assets/js/554.cc436a22.js"><link rel="prefetch" href="/assets/js/555.6dd3b332.js"><link rel="prefetch" href="/assets/js/556.1bca45bd.js"><link rel="prefetch" href="/assets/js/557.ed04b6c4.js"><link rel="prefetch" href="/assets/js/558.f5463f10.js"><link rel="prefetch" href="/assets/js/559.53329d50.js"><link rel="prefetch" href="/assets/js/56.13baebcd.js"><link rel="prefetch" href="/assets/js/560.f5e13ccd.js"><link rel="prefetch" href="/assets/js/561.f763630b.js"><link rel="prefetch" href="/assets/js/562.4f9490b0.js"><link rel="prefetch" href="/assets/js/563.3748a3ca.js"><link rel="prefetch" href="/assets/js/564.fbc408de.js"><link rel="prefetch" href="/assets/js/565.31ed265f.js"><link rel="prefetch" href="/assets/js/566.1ff64cc1.js"><link rel="prefetch" href="/assets/js/567.6ef2145b.js"><link rel="prefetch" href="/assets/js/568.6f7dd292.js"><link rel="prefetch" href="/assets/js/569.c4379648.js"><link rel="prefetch" href="/assets/js/57.fe75cd24.js"><link rel="prefetch" href="/assets/js/570.e04546d3.js"><link rel="prefetch" href="/assets/js/571.cf8cac82.js"><link rel="prefetch" href="/assets/js/572.bb367f08.js"><link rel="prefetch" href="/assets/js/573.8b456fda.js"><link rel="prefetch" href="/assets/js/574.f521dc09.js"><link rel="prefetch" href="/assets/js/575.a38162ff.js"><link rel="prefetch" href="/assets/js/576.5185295f.js"><link rel="prefetch" href="/assets/js/577.6290696e.js"><link rel="prefetch" href="/assets/js/578.1cab40b5.js"><link rel="prefetch" href="/assets/js/579.ac77e29e.js"><link rel="prefetch" href="/assets/js/58.cfd0c6a3.js"><link rel="prefetch" href="/assets/js/580.e3c422d1.js"><link rel="prefetch" href="/assets/js/581.ec39a356.js"><link rel="prefetch" href="/assets/js/582.8c9adb50.js"><link rel="prefetch" href="/assets/js/583.4bb4eee9.js"><link rel="prefetch" href="/assets/js/584.e1aa0fe0.js"><link rel="prefetch" href="/assets/js/585.0115a5c3.js"><link rel="prefetch" href="/assets/js/586.aaba87df.js"><link rel="prefetch" href="/assets/js/587.ed37f68c.js"><link rel="prefetch" href="/assets/js/588.5a519ee9.js"><link rel="prefetch" href="/assets/js/589.3bc97ea0.js"><link rel="prefetch" href="/assets/js/59.167d0bcd.js"><link rel="prefetch" href="/assets/js/590.c327cb86.js"><link rel="prefetch" href="/assets/js/591.c0bfb961.js"><link rel="prefetch" href="/assets/js/592.3e985e6e.js"><link rel="prefetch" href="/assets/js/593.c5b54dff.js"><link rel="prefetch" href="/assets/js/594.287c9761.js"><link rel="prefetch" href="/assets/js/595.3c119a84.js"><link rel="prefetch" href="/assets/js/596.721f1b45.js"><link rel="prefetch" href="/assets/js/597.60be9e37.js"><link rel="prefetch" href="/assets/js/598.77f49ef4.js"><link rel="prefetch" href="/assets/js/599.5be3eb2b.js"><link rel="prefetch" href="/assets/js/6.cf318bf3.js"><link rel="prefetch" href="/assets/js/60.f2884a73.js"><link rel="prefetch" href="/assets/js/600.20a80c87.js"><link rel="prefetch" href="/assets/js/601.852ebc49.js"><link rel="prefetch" href="/assets/js/602.e8540887.js"><link rel="prefetch" href="/assets/js/603.ebd0697c.js"><link rel="prefetch" href="/assets/js/604.74c0832c.js"><link rel="prefetch" href="/assets/js/605.1c62fba8.js"><link rel="prefetch" href="/assets/js/606.311f9efa.js"><link rel="prefetch" href="/assets/js/607.52ad0a1c.js"><link rel="prefetch" href="/assets/js/608.3f3d31e9.js"><link rel="prefetch" href="/assets/js/609.50d418d1.js"><link rel="prefetch" href="/assets/js/61.9c39f9f3.js"><link rel="prefetch" href="/assets/js/610.bc0f1a8e.js"><link rel="prefetch" href="/assets/js/611.3019736d.js"><link rel="prefetch" href="/assets/js/612.832bb900.js"><link rel="prefetch" href="/assets/js/613.413f609b.js"><link rel="prefetch" href="/assets/js/614.9ec5b1b8.js"><link rel="prefetch" href="/assets/js/615.1c5e127b.js"><link rel="prefetch" href="/assets/js/616.a8092f90.js"><link rel="prefetch" href="/assets/js/617.50392fe7.js"><link rel="prefetch" href="/assets/js/618.ae11510c.js"><link rel="prefetch" href="/assets/js/619.18b20515.js"><link rel="prefetch" href="/assets/js/62.900d5078.js"><link rel="prefetch" href="/assets/js/620.f1c7eafb.js"><link rel="prefetch" href="/assets/js/621.790eed1e.js"><link rel="prefetch" href="/assets/js/622.c7394726.js"><link rel="prefetch" href="/assets/js/623.cb7abcb6.js"><link rel="prefetch" href="/assets/js/624.c9c3a675.js"><link rel="prefetch" href="/assets/js/625.f70082d8.js"><link rel="prefetch" href="/assets/js/626.1f056413.js"><link rel="prefetch" href="/assets/js/627.e135b9ff.js"><link rel="prefetch" href="/assets/js/628.9c52f840.js"><link rel="prefetch" href="/assets/js/629.8a1698f7.js"><link rel="prefetch" href="/assets/js/63.abb7448c.js"><link rel="prefetch" href="/assets/js/630.b83d4003.js"><link rel="prefetch" href="/assets/js/631.7e5f79b7.js"><link rel="prefetch" href="/assets/js/632.eb5aab81.js"><link rel="prefetch" href="/assets/js/633.0650d68c.js"><link rel="prefetch" href="/assets/js/634.25bf303c.js"><link rel="prefetch" href="/assets/js/635.b8487f32.js"><link rel="prefetch" href="/assets/js/636.a6cf0802.js"><link rel="prefetch" href="/assets/js/637.f04f3591.js"><link rel="prefetch" href="/assets/js/638.8bd421e5.js"><link rel="prefetch" href="/assets/js/639.9ba58945.js"><link rel="prefetch" href="/assets/js/64.db2bcf37.js"><link rel="prefetch" href="/assets/js/640.d51fd157.js"><link rel="prefetch" href="/assets/js/641.f7fe96a5.js"><link rel="prefetch" href="/assets/js/642.b2e795bd.js"><link rel="prefetch" href="/assets/js/643.9f04f5c6.js"><link rel="prefetch" href="/assets/js/644.9ca4d285.js"><link rel="prefetch" href="/assets/js/645.e3a68817.js"><link rel="prefetch" href="/assets/js/646.5f4467c6.js"><link rel="prefetch" href="/assets/js/647.069a6086.js"><link rel="prefetch" href="/assets/js/648.193081f8.js"><link rel="prefetch" href="/assets/js/649.7d7c5320.js"><link rel="prefetch" href="/assets/js/65.72c97bda.js"><link rel="prefetch" href="/assets/js/650.ecf9911b.js"><link rel="prefetch" href="/assets/js/651.942230a8.js"><link rel="prefetch" href="/assets/js/652.d34f3118.js"><link rel="prefetch" href="/assets/js/653.53f9041a.js"><link rel="prefetch" href="/assets/js/654.e6805ed9.js"><link rel="prefetch" href="/assets/js/655.8a809fda.js"><link rel="prefetch" href="/assets/js/656.83300d7b.js"><link rel="prefetch" href="/assets/js/657.35c27851.js"><link rel="prefetch" href="/assets/js/658.e7891911.js"><link rel="prefetch" href="/assets/js/659.779c5367.js"><link rel="prefetch" href="/assets/js/66.4f7a5edd.js"><link rel="prefetch" href="/assets/js/660.4fe6deb7.js"><link rel="prefetch" href="/assets/js/661.27a95b36.js"><link rel="prefetch" href="/assets/js/662.7fc0d27a.js"><link rel="prefetch" href="/assets/js/663.9325edec.js"><link rel="prefetch" href="/assets/js/664.abeb6ed5.js"><link rel="prefetch" href="/assets/js/665.773f0248.js"><link rel="prefetch" href="/assets/js/666.ee0a0d97.js"><link rel="prefetch" href="/assets/js/667.b52a0845.js"><link rel="prefetch" href="/assets/js/668.1bd038cc.js"><link rel="prefetch" href="/assets/js/669.e66287a8.js"><link rel="prefetch" href="/assets/js/67.2480e8bd.js"><link rel="prefetch" href="/assets/js/670.2f29174f.js"><link rel="prefetch" href="/assets/js/671.b6b200f4.js"><link rel="prefetch" href="/assets/js/672.f4b446b6.js"><link rel="prefetch" href="/assets/js/673.7c3f90db.js"><link rel="prefetch" href="/assets/js/674.bf0609d9.js"><link rel="prefetch" href="/assets/js/675.dd9e2f6e.js"><link rel="prefetch" href="/assets/js/676.4619187e.js"><link rel="prefetch" href="/assets/js/677.7d2ef882.js"><link rel="prefetch" href="/assets/js/678.34a7b0f6.js"><link rel="prefetch" href="/assets/js/679.2a3bdba3.js"><link rel="prefetch" href="/assets/js/68.7ffaa481.js"><link rel="prefetch" href="/assets/js/680.71a0b0bc.js"><link rel="prefetch" href="/assets/js/681.ead8f359.js"><link rel="prefetch" href="/assets/js/682.52a27f16.js"><link rel="prefetch" href="/assets/js/683.ad95b7fa.js"><link rel="prefetch" href="/assets/js/684.b8c918ca.js"><link rel="prefetch" href="/assets/js/685.5208dc96.js"><link rel="prefetch" href="/assets/js/686.b050a1bb.js"><link rel="prefetch" href="/assets/js/687.b228a51c.js"><link rel="prefetch" href="/assets/js/688.b2b1a770.js"><link rel="prefetch" href="/assets/js/689.7de2f124.js"><link rel="prefetch" href="/assets/js/69.aee8af1c.js"><link rel="prefetch" href="/assets/js/690.4b433c15.js"><link rel="prefetch" href="/assets/js/691.39f57543.js"><link rel="prefetch" href="/assets/js/692.1f61be8f.js"><link rel="prefetch" href="/assets/js/693.cf8dc1cb.js"><link rel="prefetch" href="/assets/js/694.9ae544ed.js"><link rel="prefetch" href="/assets/js/695.e74404e7.js"><link rel="prefetch" href="/assets/js/696.e4bba43c.js"><link rel="prefetch" href="/assets/js/697.4f24db2f.js"><link rel="prefetch" href="/assets/js/698.78911518.js"><link rel="prefetch" href="/assets/js/699.0ad2b9a4.js"><link rel="prefetch" href="/assets/js/7.580cde39.js"><link rel="prefetch" href="/assets/js/70.a215388e.js"><link rel="prefetch" href="/assets/js/700.2fec1953.js"><link rel="prefetch" href="/assets/js/701.bb6afad9.js"><link rel="prefetch" href="/assets/js/702.722483fa.js"><link rel="prefetch" href="/assets/js/703.48e3cffa.js"><link rel="prefetch" href="/assets/js/704.45d85350.js"><link rel="prefetch" href="/assets/js/705.fb388ad0.js"><link rel="prefetch" href="/assets/js/706.3e417e29.js"><link rel="prefetch" href="/assets/js/707.13134d60.js"><link rel="prefetch" href="/assets/js/708.40f740ea.js"><link rel="prefetch" href="/assets/js/709.283cb263.js"><link rel="prefetch" href="/assets/js/71.da91c905.js"><link rel="prefetch" href="/assets/js/710.babb25fb.js"><link rel="prefetch" href="/assets/js/711.d137c46c.js"><link rel="prefetch" href="/assets/js/712.4c4efb7f.js"><link rel="prefetch" href="/assets/js/713.4be8239e.js"><link rel="prefetch" href="/assets/js/714.f49a1cba.js"><link rel="prefetch" href="/assets/js/715.7042aa8c.js"><link rel="prefetch" href="/assets/js/716.b9a8f566.js"><link rel="prefetch" href="/assets/js/717.a53b38cc.js"><link rel="prefetch" href="/assets/js/718.982e2545.js"><link rel="prefetch" href="/assets/js/719.c9d82897.js"><link rel="prefetch" href="/assets/js/72.229bb912.js"><link rel="prefetch" href="/assets/js/720.77d31e2b.js"><link rel="prefetch" href="/assets/js/721.489b807b.js"><link rel="prefetch" href="/assets/js/722.ba8114d2.js"><link rel="prefetch" href="/assets/js/723.afa40617.js"><link rel="prefetch" href="/assets/js/724.6f8db202.js"><link rel="prefetch" href="/assets/js/725.feda2f64.js"><link rel="prefetch" href="/assets/js/726.60dc4370.js"><link rel="prefetch" href="/assets/js/727.f5f19548.js"><link rel="prefetch" href="/assets/js/728.680cb248.js"><link rel="prefetch" href="/assets/js/729.66606b3c.js"><link rel="prefetch" href="/assets/js/73.2efcc02f.js"><link rel="prefetch" href="/assets/js/730.0a28d385.js"><link rel="prefetch" href="/assets/js/731.6be5e39c.js"><link rel="prefetch" href="/assets/js/732.30d0b1e8.js"><link rel="prefetch" href="/assets/js/733.7b042509.js"><link rel="prefetch" href="/assets/js/734.cb63d283.js"><link rel="prefetch" href="/assets/js/735.ffc3439a.js"><link rel="prefetch" href="/assets/js/736.750b291e.js"><link rel="prefetch" href="/assets/js/737.2a830779.js"><link rel="prefetch" href="/assets/js/738.d9cf56ca.js"><link rel="prefetch" href="/assets/js/739.80fbc003.js"><link rel="prefetch" href="/assets/js/74.58ed5bd1.js"><link rel="prefetch" href="/assets/js/740.c12e7a1e.js"><link rel="prefetch" href="/assets/js/741.ac91838d.js"><link rel="prefetch" href="/assets/js/742.5cc661c2.js"><link rel="prefetch" href="/assets/js/743.8b5c9815.js"><link rel="prefetch" href="/assets/js/744.19d52be5.js"><link rel="prefetch" href="/assets/js/745.83c01f00.js"><link rel="prefetch" href="/assets/js/746.118d2abb.js"><link rel="prefetch" href="/assets/js/747.c59f57fd.js"><link rel="prefetch" href="/assets/js/748.ab1d1e6d.js"><link rel="prefetch" href="/assets/js/749.fc975842.js"><link rel="prefetch" href="/assets/js/75.b84639a1.js"><link rel="prefetch" href="/assets/js/750.d91c28d4.js"><link rel="prefetch" href="/assets/js/751.c3c78d19.js"><link rel="prefetch" href="/assets/js/752.61ee94de.js"><link rel="prefetch" href="/assets/js/753.358090a4.js"><link rel="prefetch" href="/assets/js/754.02a2bc78.js"><link rel="prefetch" href="/assets/js/755.684d0d0a.js"><link rel="prefetch" href="/assets/js/756.5fce9126.js"><link rel="prefetch" href="/assets/js/757.7320ead7.js"><link rel="prefetch" href="/assets/js/758.3345bbb8.js"><link rel="prefetch" href="/assets/js/759.c5bd0e08.js"><link rel="prefetch" href="/assets/js/76.6a9ac218.js"><link rel="prefetch" href="/assets/js/760.0c5771fe.js"><link rel="prefetch" href="/assets/js/761.4c7604cb.js"><link rel="prefetch" href="/assets/js/762.352ff81f.js"><link rel="prefetch" href="/assets/js/763.44baaaaf.js"><link rel="prefetch" href="/assets/js/764.374c38cd.js"><link rel="prefetch" href="/assets/js/765.994ece69.js"><link rel="prefetch" href="/assets/js/766.06bda8fb.js"><link rel="prefetch" href="/assets/js/767.b822b0b5.js"><link rel="prefetch" href="/assets/js/768.dc132566.js"><link rel="prefetch" href="/assets/js/769.dee91f2c.js"><link rel="prefetch" href="/assets/js/77.78e66170.js"><link rel="prefetch" href="/assets/js/770.2abb948b.js"><link rel="prefetch" href="/assets/js/771.4a7ab5b5.js"><link rel="prefetch" href="/assets/js/772.fa15633f.js"><link rel="prefetch" href="/assets/js/773.476b2f8c.js"><link rel="prefetch" href="/assets/js/774.f73328c6.js"><link rel="prefetch" href="/assets/js/775.94bb9ff2.js"><link rel="prefetch" href="/assets/js/776.d6ffa639.js"><link rel="prefetch" href="/assets/js/777.75bdfb66.js"><link rel="prefetch" href="/assets/js/778.45bb5f61.js"><link rel="prefetch" href="/assets/js/779.9b58f348.js"><link rel="prefetch" href="/assets/js/78.ffdc516e.js"><link rel="prefetch" href="/assets/js/780.bfd74815.js"><link rel="prefetch" href="/assets/js/781.58f90b7a.js"><link rel="prefetch" href="/assets/js/782.8e942687.js"><link rel="prefetch" href="/assets/js/783.85a00ab8.js"><link rel="prefetch" href="/assets/js/784.d41448d2.js"><link rel="prefetch" href="/assets/js/785.f31bf11c.js"><link rel="prefetch" href="/assets/js/786.c678539d.js"><link rel="prefetch" href="/assets/js/787.c787ab97.js"><link rel="prefetch" href="/assets/js/788.e5eb48d2.js"><link rel="prefetch" href="/assets/js/789.acd055e9.js"><link rel="prefetch" href="/assets/js/79.f909e806.js"><link rel="prefetch" href="/assets/js/790.e4b374de.js"><link rel="prefetch" href="/assets/js/791.024a918c.js"><link rel="prefetch" href="/assets/js/792.ed5071fc.js"><link rel="prefetch" href="/assets/js/793.942a5d86.js"><link rel="prefetch" href="/assets/js/794.9907cfe6.js"><link rel="prefetch" href="/assets/js/795.0fc8b395.js"><link rel="prefetch" href="/assets/js/796.6295f059.js"><link rel="prefetch" href="/assets/js/797.089d1037.js"><link rel="prefetch" href="/assets/js/798.94eb26fc.js"><link rel="prefetch" href="/assets/js/799.c5b7498e.js"><link rel="prefetch" href="/assets/js/8.cce6a64e.js"><link rel="prefetch" href="/assets/js/80.31670d46.js"><link rel="prefetch" href="/assets/js/800.bad9d19f.js"><link rel="prefetch" href="/assets/js/801.33491fe4.js"><link rel="prefetch" href="/assets/js/802.46af35ba.js"><link rel="prefetch" href="/assets/js/803.0a18c40d.js"><link rel="prefetch" href="/assets/js/804.562e6856.js"><link rel="prefetch" href="/assets/js/805.7efa3fe1.js"><link rel="prefetch" href="/assets/js/806.3068b516.js"><link rel="prefetch" href="/assets/js/807.a4239c6b.js"><link rel="prefetch" href="/assets/js/808.ba1e41ea.js"><link rel="prefetch" href="/assets/js/809.e8d14337.js"><link rel="prefetch" href="/assets/js/81.374b2d43.js"><link rel="prefetch" href="/assets/js/810.a50d6290.js"><link rel="prefetch" href="/assets/js/811.f535a1a5.js"><link rel="prefetch" href="/assets/js/812.a8092cde.js"><link rel="prefetch" href="/assets/js/813.8bca04b2.js"><link rel="prefetch" href="/assets/js/814.e903ca94.js"><link rel="prefetch" href="/assets/js/815.460680f9.js"><link rel="prefetch" href="/assets/js/816.c81ec98d.js"><link rel="prefetch" href="/assets/js/817.3d4293e6.js"><link rel="prefetch" href="/assets/js/818.87d17498.js"><link rel="prefetch" href="/assets/js/819.0436b5c8.js"><link rel="prefetch" href="/assets/js/82.d1133906.js"><link rel="prefetch" href="/assets/js/820.60d537c4.js"><link rel="prefetch" href="/assets/js/821.df72a4d8.js"><link rel="prefetch" href="/assets/js/822.f2d43b5a.js"><link rel="prefetch" href="/assets/js/823.d5016910.js"><link rel="prefetch" href="/assets/js/824.d95d1320.js"><link rel="prefetch" href="/assets/js/825.87a8a520.js"><link rel="prefetch" href="/assets/js/826.a4586fd1.js"><link rel="prefetch" href="/assets/js/827.100816cf.js"><link rel="prefetch" href="/assets/js/828.5cb5cc1d.js"><link rel="prefetch" href="/assets/js/829.d3baf9b2.js"><link rel="prefetch" href="/assets/js/83.e8032279.js"><link rel="prefetch" href="/assets/js/830.01ebce68.js"><link rel="prefetch" href="/assets/js/831.1408df09.js"><link rel="prefetch" href="/assets/js/832.884cc79c.js"><link rel="prefetch" href="/assets/js/833.7f575c7f.js"><link rel="prefetch" href="/assets/js/834.c7e66ff7.js"><link rel="prefetch" href="/assets/js/835.97313b0f.js"><link rel="prefetch" href="/assets/js/836.6df71e1e.js"><link rel="prefetch" href="/assets/js/837.5e646e90.js"><link rel="prefetch" href="/assets/js/838.6ead4c5a.js"><link rel="prefetch" href="/assets/js/839.af13812b.js"><link rel="prefetch" href="/assets/js/84.ab43112e.js"><link rel="prefetch" href="/assets/js/840.3aa18ec2.js"><link rel="prefetch" href="/assets/js/841.4bbb46fa.js"><link rel="prefetch" href="/assets/js/842.5094513f.js"><link rel="prefetch" href="/assets/js/843.c83d8d08.js"><link rel="prefetch" href="/assets/js/844.d564de65.js"><link rel="prefetch" href="/assets/js/845.3e2dd1b4.js"><link rel="prefetch" href="/assets/js/846.1023c980.js"><link rel="prefetch" href="/assets/js/847.6b3b5c15.js"><link rel="prefetch" href="/assets/js/848.b4208a0c.js"><link rel="prefetch" href="/assets/js/849.f9b5d4e3.js"><link rel="prefetch" href="/assets/js/85.88df2381.js"><link rel="prefetch" href="/assets/js/850.fcef9ee4.js"><link rel="prefetch" href="/assets/js/851.1839352a.js"><link rel="prefetch" href="/assets/js/852.4dfdef97.js"><link rel="prefetch" href="/assets/js/853.0027d8a0.js"><link rel="prefetch" href="/assets/js/854.380c7a6a.js"><link rel="prefetch" href="/assets/js/855.8368cf31.js"><link rel="prefetch" href="/assets/js/856.d73aa69c.js"><link rel="prefetch" href="/assets/js/857.cc205cd4.js"><link rel="prefetch" href="/assets/js/858.560ac4e7.js"><link rel="prefetch" href="/assets/js/859.6be4eddb.js"><link rel="prefetch" href="/assets/js/86.54e0a542.js"><link rel="prefetch" href="/assets/js/860.d4d6fe46.js"><link rel="prefetch" href="/assets/js/861.ac6909c4.js"><link rel="prefetch" href="/assets/js/862.55245c1a.js"><link rel="prefetch" href="/assets/js/863.bb658dc3.js"><link rel="prefetch" href="/assets/js/864.2bdc5efe.js"><link rel="prefetch" href="/assets/js/865.4f969d6b.js"><link rel="prefetch" href="/assets/js/866.565a302b.js"><link rel="prefetch" href="/assets/js/867.3a8ebbb1.js"><link rel="prefetch" href="/assets/js/868.f24282f0.js"><link rel="prefetch" href="/assets/js/869.83a8ec4b.js"><link rel="prefetch" href="/assets/js/87.79a61742.js"><link rel="prefetch" href="/assets/js/870.b9f6174d.js"><link rel="prefetch" href="/assets/js/871.5323da03.js"><link rel="prefetch" href="/assets/js/872.3694ac78.js"><link rel="prefetch" href="/assets/js/873.dc2fa93c.js"><link rel="prefetch" href="/assets/js/874.340e79df.js"><link rel="prefetch" href="/assets/js/875.5534db84.js"><link rel="prefetch" href="/assets/js/876.0aca848f.js"><link rel="prefetch" href="/assets/js/877.0b1c0c5a.js"><link rel="prefetch" href="/assets/js/878.88e8d35d.js"><link rel="prefetch" href="/assets/js/879.536212ca.js"><link rel="prefetch" href="/assets/js/88.ee75e5fe.js"><link rel="prefetch" href="/assets/js/880.83f6c2ac.js"><link rel="prefetch" href="/assets/js/881.b85a65e7.js"><link rel="prefetch" href="/assets/js/882.9dcfa460.js"><link rel="prefetch" href="/assets/js/883.f05eb186.js"><link rel="prefetch" href="/assets/js/884.5a258dc8.js"><link rel="prefetch" href="/assets/js/885.9176ba65.js"><link rel="prefetch" href="/assets/js/886.a51922b2.js"><link rel="prefetch" href="/assets/js/887.d5bebfd8.js"><link rel="prefetch" href="/assets/js/888.ebd2efeb.js"><link rel="prefetch" href="/assets/js/889.3cc86fff.js"><link rel="prefetch" href="/assets/js/89.992ad6a4.js"><link rel="prefetch" href="/assets/js/890.a19e105a.js"><link rel="prefetch" href="/assets/js/891.332fbcaf.js"><link rel="prefetch" href="/assets/js/892.747ddb16.js"><link rel="prefetch" href="/assets/js/893.a3eb4bf1.js"><link rel="prefetch" href="/assets/js/894.3d5628ae.js"><link rel="prefetch" href="/assets/js/895.5da04aea.js"><link rel="prefetch" href="/assets/js/896.5efa81ab.js"><link rel="prefetch" href="/assets/js/897.5edfc2fd.js"><link rel="prefetch" href="/assets/js/898.d1414756.js"><link rel="prefetch" href="/assets/js/899.afe31521.js"><link rel="prefetch" href="/assets/js/9.29461cf8.js"><link rel="prefetch" href="/assets/js/90.c4934c1e.js"><link rel="prefetch" href="/assets/js/900.e24f150d.js"><link rel="prefetch" href="/assets/js/901.aecabe5b.js"><link rel="prefetch" href="/assets/js/902.82b477b2.js"><link rel="prefetch" href="/assets/js/903.010f5273.js"><link rel="prefetch" href="/assets/js/904.431a4f4b.js"><link rel="prefetch" href="/assets/js/905.bedb5383.js"><link rel="prefetch" href="/assets/js/906.432763bf.js"><link rel="prefetch" href="/assets/js/907.000d8a4a.js"><link rel="prefetch" href="/assets/js/908.22e72188.js"><link rel="prefetch" href="/assets/js/909.8175213f.js"><link rel="prefetch" href="/assets/js/91.c32e4ca6.js"><link rel="prefetch" href="/assets/js/910.13eef4d5.js"><link rel="prefetch" href="/assets/js/911.36aed55e.js"><link rel="prefetch" href="/assets/js/912.2ff8cd47.js"><link rel="prefetch" href="/assets/js/913.c8c4358d.js"><link rel="prefetch" href="/assets/js/914.8840c11f.js"><link rel="prefetch" href="/assets/js/915.0b24a4bf.js"><link rel="prefetch" href="/assets/js/916.7cb6d716.js"><link rel="prefetch" href="/assets/js/917.e618c001.js"><link rel="prefetch" href="/assets/js/918.a5531442.js"><link rel="prefetch" href="/assets/js/919.12e94560.js"><link rel="prefetch" href="/assets/js/92.1ce4b0bc.js"><link rel="prefetch" href="/assets/js/920.812e61c8.js"><link rel="prefetch" href="/assets/js/921.b297c066.js"><link rel="prefetch" href="/assets/js/922.7a956391.js"><link rel="prefetch" href="/assets/js/923.8e0aceb7.js"><link rel="prefetch" href="/assets/js/924.cc99778c.js"><link rel="prefetch" href="/assets/js/925.90ba519f.js"><link rel="prefetch" href="/assets/js/926.3398172a.js"><link rel="prefetch" href="/assets/js/927.b84919f0.js"><link rel="prefetch" href="/assets/js/928.bc1cf15e.js"><link rel="prefetch" href="/assets/js/929.d25cbae7.js"><link rel="prefetch" href="/assets/js/93.2484ac5e.js"><link rel="prefetch" href="/assets/js/930.1dc21e69.js"><link rel="prefetch" href="/assets/js/931.59775f6e.js"><link rel="prefetch" href="/assets/js/932.62a96fde.js"><link rel="prefetch" href="/assets/js/933.438fe1a9.js"><link rel="prefetch" href="/assets/js/934.de5feb2e.js"><link rel="prefetch" href="/assets/js/935.c824e558.js"><link rel="prefetch" href="/assets/js/936.b4f8a60a.js"><link rel="prefetch" href="/assets/js/937.44368a64.js"><link rel="prefetch" href="/assets/js/938.0dd2d3e3.js"><link rel="prefetch" href="/assets/js/939.55876bdc.js"><link rel="prefetch" href="/assets/js/94.feca0252.js"><link rel="prefetch" href="/assets/js/940.e73f4aa8.js"><link rel="prefetch" href="/assets/js/941.8c3de8bf.js"><link rel="prefetch" href="/assets/js/942.59baed06.js"><link rel="prefetch" href="/assets/js/943.f84b59df.js"><link rel="prefetch" href="/assets/js/944.a3056dd4.js"><link rel="prefetch" href="/assets/js/945.c2df424e.js"><link rel="prefetch" href="/assets/js/946.fa9d199c.js"><link rel="prefetch" href="/assets/js/947.985b6ed7.js"><link rel="prefetch" href="/assets/js/948.31539629.js"><link rel="prefetch" href="/assets/js/949.dd73b029.js"><link rel="prefetch" href="/assets/js/95.0c56bb16.js"><link rel="prefetch" href="/assets/js/950.2a6313c0.js"><link rel="prefetch" href="/assets/js/951.b2ea8eed.js"><link rel="prefetch" href="/assets/js/952.b5787e3a.js"><link rel="prefetch" href="/assets/js/953.85d90b7e.js"><link rel="prefetch" href="/assets/js/954.7500082a.js"><link rel="prefetch" href="/assets/js/955.30b8147e.js"><link rel="prefetch" href="/assets/js/956.618b94ac.js"><link rel="prefetch" href="/assets/js/957.9ef100b0.js"><link rel="prefetch" href="/assets/js/958.cc97bd03.js"><link rel="prefetch" href="/assets/js/959.30dff621.js"><link rel="prefetch" href="/assets/js/96.af10cfcb.js"><link rel="prefetch" href="/assets/js/960.682efe65.js"><link rel="prefetch" href="/assets/js/961.0115c5a9.js"><link rel="prefetch" href="/assets/js/962.8d0f68bc.js"><link rel="prefetch" href="/assets/js/963.016e22a9.js"><link rel="prefetch" href="/assets/js/964.7a4fca44.js"><link rel="prefetch" href="/assets/js/965.cda654d6.js"><link rel="prefetch" href="/assets/js/966.6a7343d9.js"><link rel="prefetch" href="/assets/js/967.e73f60bc.js"><link rel="prefetch" href="/assets/js/968.846e4733.js"><link rel="prefetch" href="/assets/js/969.7947b9f5.js"><link rel="prefetch" href="/assets/js/97.3900c437.js"><link rel="prefetch" href="/assets/js/970.5361b25f.js"><link rel="prefetch" href="/assets/js/971.894bc336.js"><link rel="prefetch" href="/assets/js/972.f1ec066e.js"><link rel="prefetch" href="/assets/js/973.68ae276e.js"><link rel="prefetch" href="/assets/js/974.6bc4ac63.js"><link rel="prefetch" href="/assets/js/975.43805e09.js"><link rel="prefetch" href="/assets/js/976.e6b52e46.js"><link rel="prefetch" href="/assets/js/977.6afd719d.js"><link rel="prefetch" href="/assets/js/978.162b25fb.js"><link rel="prefetch" href="/assets/js/979.8827baaa.js"><link rel="prefetch" href="/assets/js/98.72a96fe6.js"><link rel="prefetch" href="/assets/js/980.e01cd347.js"><link rel="prefetch" href="/assets/js/981.e3359295.js"><link rel="prefetch" href="/assets/js/982.71517121.js"><link rel="prefetch" href="/assets/js/983.276fcc92.js"><link rel="prefetch" href="/assets/js/984.ca60f275.js"><link rel="prefetch" href="/assets/js/985.9ea05447.js"><link rel="prefetch" href="/assets/js/986.c7adf01e.js"><link rel="prefetch" href="/assets/js/987.f6ff1317.js"><link rel="prefetch" href="/assets/js/988.bea0da8e.js"><link rel="prefetch" href="/assets/js/989.b7bb16ee.js"><link rel="prefetch" href="/assets/js/99.a6cd90f2.js"><link rel="prefetch" href="/assets/js/990.1e885e28.js"><link rel="prefetch" href="/assets/js/991.573f8b64.js"><link rel="prefetch" href="/assets/js/992.40a6d45c.js"><link rel="prefetch" href="/assets/js/993.3b2f291b.js"><link rel="prefetch" href="/assets/js/994.236cc8cb.js"><link rel="prefetch" href="/assets/js/995.f89fd5b8.js"><link rel="prefetch" href="/assets/js/996.b6355b00.js"><link rel="prefetch" href="/assets/js/997.42319bf7.js"><link rel="prefetch" href="/assets/js/998.fb619b70.js"><link rel="prefetch" href="/assets/js/999.19ea78dd.js"> <link rel="stylesheet" href="/assets/css/0.styles.e5536188.css">
+	</head>
+	<body>
+		<div id="app" data-server-rendered="true"><div class="theme-container no-sidebar"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">上岸QQ的鱼</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">
+  首页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="笔记" class="dropdown-title"><span class="title">笔记</span> <span class="arrow down"></span></button> <button type="button" aria-label="笔记" class="mobile-dropdown-title"><span class="title">笔记</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          前端技术
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/node/" class="nav-link">
+  node
+</a></li><li class="dropdown-subitem"><a href="/deno/" class="nav-link">
+  deno
+</a></li><li class="dropdown-subitem"><a href="/shell/" class="nav-link">
+  shell
+</a></li></ul></li><li class="dropdown-item"><h4>
+          其他
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/mac/" class="nav-link">
+  mac &amp; linux
+</a></li></ul></li></ul></div></div><div class="nav-item"><a href="/idea/" class="nav-link">
+  想法
+</a></div><div class="nav-item"><a href="/projects/" class="nav-link">
+  项目
+</a></div><div class="nav-item"><a href="/blog.html" class="nav-link">
+  博客
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="更多" class="dropdown-title"><span class="title">更多</span> <span class="arrow down"></span></button> <button type="button" aria-label="更多" class="mobile-dropdown-title"><span class="title">更多</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          链接
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://github.com/saqqdy" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Github
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="https://github.com/saqqdy/saqqdy.github.io#readme" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  HomePage
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="https://github.com/saqqdy/saqqdy.github.io/issues" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Bugs
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></li><li class="dropdown-item"><h4>
+          作者
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="http://www.saqqdy.com" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  saqqdy
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></li></ul></div></div> <a href="https://github.com/saqqdy/saqqdy.github.io.git" target="_blank" rel="noopener noreferrer" class="repo-link">
+    查看源码
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">
+  首页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="笔记" class="dropdown-title"><span class="title">笔记</span> <span class="arrow down"></span></button> <button type="button" aria-label="笔记" class="mobile-dropdown-title"><span class="title">笔记</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          前端技术
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/node/" class="nav-link">
+  node
+</a></li><li class="dropdown-subitem"><a href="/deno/" class="nav-link">
+  deno
+</a></li><li class="dropdown-subitem"><a href="/shell/" class="nav-link">
+  shell
+</a></li></ul></li><li class="dropdown-item"><h4>
+          其他
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/mac/" class="nav-link">
+  mac &amp; linux
+</a></li></ul></li></ul></div></div><div class="nav-item"><a href="/idea/" class="nav-link">
+  想法
+</a></div><div class="nav-item"><a href="/projects/" class="nav-link">
+  项目
+</a></div><div class="nav-item"><a href="/blog.html" class="nav-link">
+  博客
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="更多" class="dropdown-title"><span class="title">更多</span> <span class="arrow down"></span></button> <button type="button" aria-label="更多" class="mobile-dropdown-title"><span class="title">更多</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          链接
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://github.com/saqqdy" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Github
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="https://github.com/saqqdy/saqqdy.github.io#readme" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  HomePage
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="https://github.com/saqqdy/saqqdy.github.io/issues" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Bugs
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></li><li class="dropdown-item"><h4>
+          作者
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="http://www.saqqdy.com" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  saqqdy
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></li></ul></div></div> <a href="https://github.com/saqqdy/saqqdy.github.io.git" target="_blank" rel="noopener noreferrer" class="repo-link">
+    查看源码
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav>  <!----> </aside> <main class="page"> <div class="theme-default-content content__default"><p>###排序算法说明
+</p> <p>Github：<a href="https://github.com/saqqdy/js-sorts">https://github.com/saqqdy/js-sorts</a></p> <p>** （1）排序的定义：对一序列对象根据某个关键字进行排序； **
+</p> <p>输入：n个数：a1,a2,a3,...,an 输出：n个数的排列:a1',a2',a3',...,an'，使得a1'&lt;=a2'&lt;=a3'&lt;=...&lt;=an'。
+</p> <p>再讲的形象点就是排排坐，调座位，高的站在后面，矮的站在前面咯。
+</p> <p>** （3）对于评述算法优劣术语的说明 **
+</p> <p>** 稳定 <strong>：如果a原本在b前面，而a=b，排序之后a仍然在b的前面； </strong> 不稳定 **：如果a原本在b的前面，而a=b，排序之后a可能会出现在b的后面；
+</p> <p>** 内排序 <strong>：所有排序操作都在内存中完成； </strong> 外排序 **：由于数据太大，因此把数据放在磁盘中，而排序通过磁盘和内存的数据传输才能进行；
+</p> <p>** 时间复杂度 <strong>: 一个算法执行所耗费的时间。 </strong> 空间复杂度 **: 运行完一个程序所需内存的大小。
+</p> <p>关于时间空间复杂度的更多了解请戳<a href="http://blog.csdn.net/booirror/article/details/7707551/">这里</a>，或是看书程杰大大编写的《大话数据结构》还是很赞的，通俗易懂。
+</p> <p>** （4）排序算法图片总结(图片来源于网络): **
+</p> <p>排序对比：
+</p> <figure class="wp-block-image"><img src="687474703a2f2f696d672e626c6f672e6373646e2e6e65742f3230313630393136313533323132373136.png" alt="" class="wp-image-1029"></figure> <p>** 图片名词解释： ** n: 数据规模 k:&quot;桶&quot;的个数 In-place: 占用常数内存，不占用额外内存 Out-place: 占用额外内存
+</p> <p>排序分类：
+</p> <figure class="wp-block-image"><img src="687474703a2f2f696d672e626c6f672e6373646e2e6e65742f3230313630393136313534303336383837.jpeg" alt="" class="wp-image-1030"></figure> <p>###<a href="https://github.com/damonare/Sorts#1%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8Fbubble-sort"></a>1.冒泡排序（Bubble Sort）
+</p> <blockquote class="wp-block-quote">好的，开始总结第一个排序算法，冒泡排序。我想对于它每个学过C语言的都会了解的吧，这可能是很多人接触的第一个排序算法。</blockquote> <p>####<a href="https://github.com/damonare/Sorts#1%E7%AE%97%E6%B3%95%E6%8F%8F%E8%BF%B0"></a>(1)算法描述
+</p> <blockquote class="wp-block-quote">冒泡排序是一种简单的排序算法。它重复地走访过要排序的数列，一次比较两个元素，如果它们的顺序错误就把它们交换过来。走访数列的工作是重复地进行直到没有再需要交换，也就是说该数列已经排序完成。这个算法的名字由来是因为越小的元素会经由交换慢慢&quot;浮&quot;到数列的顶端。</blockquote> <p>####<a href="https://github.com/damonare/Sorts#2%E7%AE%97%E6%B3%95%E6%8F%8F%E8%BF%B0%E5%92%8C%E5%AE%9E%E7%8E%B0"></a>(2)算法描述和实现
+</p> <p>具体算法描述如下：
+</p> <ul><li>&lt;1&gt;.比较相邻的元素。如果第一个比第二个大，就交换它们两个；* &lt;2&gt;.对每一对相邻元素作同样的工作，从开始第一对到结尾的最后一对，这样在最后的元素应该会是最大的数；* &lt;3&gt;.针对所有的元素重复以上的步骤，除了最后一个；* &lt;4&gt;.重复步骤1~3，直到排序完成。
+</li></ul> <p>** JavaScript代码实现： **
+</p> <pre class="wp-block-code"><code>function bubbleSort(arr) {
+    var len = arr.length;
+    for (var i = 0; i &lt; len; i++) {
+        for (var j = 0; j &lt; len - 1 - i; j++) {
+            if (arr[j] &gt; arr[j+1]) {        //相邻元素两两对比
+                var temp = arr[j+1];        //元素交换
+                arr[j+1] = arr[j];
+                arr[j] = temp;
+            }
+        }
+    }
+    return arr;
+}
+var arr=[3,44,38,5,47,15,36,26,27,2,46,4,19,50,48];
+console.log(bubbleSort(arr));//[2, 3, 4, 5, 15, 19, 26, 27, 36, 38, 44, 46, 47, 48, 50]</code></pre> <blockquote class="wp-block-quote">** 改进冒泡排序： ** 设置一标志性变量pos,用于记录每趟排序中最后一次进行交换的位置。由于pos位置之后的记录均已交换到位,故在进行下一趟排序时只要扫描到pos位置即可。</blockquote> <p>改进后算法如下:
+</p> <pre class="wp-block-code"><code>function bubbleSort2(arr) {
+    console.time('改进后冒泡排序耗时');
+    var i = arr.length-1;  //初始时,最后位置保持不变
+    while ( i&gt; 0) {
+        var pos= 0; //每趟开始时,无记录交换
+        for (var j= 0; j&lt; i; j++)
+            if (arr[j]&gt; arr[j+1]) {
+                pos= j; //记录交换的位置
+                var tmp = arr[j]; arr[j]=arr[j+1];arr[j+1]=tmp;
+            }
+        i= pos; //为下一趟排序作准备
+     }
+     console.timeEnd('改进后冒泡排序耗时');
+     return arr;
+}
+var arr=[3,44,38,5,47,15,36,26,27,2,46,4,19,50,48];
+console.log(bubbleSort2(arr));//[2, 3, 4, 5, 15, 19, 26, 27, 36, 38, 44, 46, 47, 48, 50]</code></pre> <blockquote class="wp-block-quote">传统冒泡排序中每一趟排序操作只能找到一个最大值或最小值,我们考虑利用在每趟排序中进行正向和反向两遍冒泡的方法一次可以得到两个最终值(最大者和最小者) , 从而使排序趟数几乎减少了一半。</blockquote> <p>改进后的算法实现为:
+</p> <pre class="wp-block-code"><code>function bubbleSort3(arr3) {
+    var low = 0;
+    var high= arr.length-1; //设置变量的初始值
+    var tmp,j;
+    console.time('2.改进后冒泡排序耗时');
+    while (low &lt; high) {
+        for (j= low; j&lt; high; ++j) //正向冒泡,找到最大者
+            if (arr[j]&gt; arr[j+1]) {
+                tmp = arr[j]; arr[j]=arr[j+1];arr[j+1]=tmp;
+            }
+        --high;                 //修改high值, 前移一位
+        for (j=high; j&gt;low; --j) //反向冒泡,找到最小者
+            if (arr[j]=tmp;
+            }
+        ++low;                  //修改low值,后移一位
+    }
+    console.timeEnd('2.改进后冒泡排序耗时');
+    return arr3;
+}
+var arr=[3,44,38,5,47,15,36,26,27,2,46,4,19,50,48];
+console.log(bubbleSort3(arr));//[2, 3, 4, 5, 15, 19, 26, 27, 36, 38, 44, 46, 47, 48, 50]</code></pre> <p>三种方法耗时对比：
+</p> <figure class="wp-block-image"><img src="687474703a2f2f696d672e626c6f672e6373646e2e6e65742f3230313630393136313633313236333734.png" alt="" class="wp-image-1031"></figure> <blockquote class="wp-block-quote">由图可以看出改进后的冒泡排序明显的时间复杂度更低，耗时更短了。读者自行尝试可以戳这，博主在github建了个库，读者可以Clone下来本地尝试。此博文配合源码体验更棒哦~~~</blockquote> <p>** 冒泡排序动图演示: **
+</p> <figure class="wp-block-image"><img src="687474703a2f2f696d672e626c6f672e6373646e2e6e65742f3230313630393136313630373438333839.gif" alt="" class="wp-image-1032"></figure> <p>** (3)算法分析 **
+</p> <ul><li>最佳情况：T(n) = O(n)
+</li></ul> <blockquote class="wp-block-quote">当输入的数据已经是正序时（都已经是正序了，为毛何必还排序呢....）</blockquote> <ul><li>最差情况：T(n) = O(n2)
+</li></ul> <blockquote class="wp-block-quote">当输入的数据是反序时(卧槽，我直接反序不就完了....)</blockquote> <ul><li>平均情况：T(n) = O(n2)
+</li></ul> <p>###<a href="https://github.com/damonare/Sorts#2%E9%80%89%E6%8B%A9%E6%8E%92%E5%BA%8Fselection-sort"></a>2.选择排序（Selection Sort）
+</p> <blockquote class="wp-block-quote">表现最稳定的排序算法之一(这个稳定不是指算法层面上的稳定哈，相信聪明的你能明白我说的意思2333)，因为无论什么数据进去都是O(n²)的时间复杂度.....所以用到它的时候，数据规模越小越好。唯一的好处可能就是不占用额外的内存空间了吧。理论上讲，选择排序可能也是平时排序一般人想到的最多的排序方法了吧。</blockquote> <p>####<a href="https://github.com/damonare/Sorts#1%E7%AE%97%E6%B3%95%E7%AE%80%E4%BB%8B"></a>(1)算法简介
+</p> <blockquote class="wp-block-quote">选择排序(Selection-sort)是一种简单直观的排序算法。它的工作原理：首先在未排序序列中找到最小（大）元素，存放到排序序列的起始位置，然后，再从剩余未排序元素中继续寻找最小（大）元素，然后放到已排序序列的末尾。以此类推，直到所有元素均排序完毕。</blockquote> <p>####<a href="https://github.com/damonare/Sorts#2%E7%AE%97%E6%B3%95%E6%8F%8F%E8%BF%B0%E5%92%8C%E5%AE%9E%E7%8E%B0-1"></a>(2)算法描述和实现
+</p> <p>n个记录的直接选择排序可经过n-1趟直接选择排序得到有序结果。具体算法描述如下：
+</p> <ul><li>&lt;1&gt;.初始状态：无序区为R[1..n]，有序区为空；* &lt;2&gt;.第i趟排序(i=1,2,3...n-1)开始时，当前有序区和无序区分别为R[1..i-1]和R(i..n）。该趟排序从当前无序区中-选出关键字最小的记录 R[k]，将它与无序区的第1个记录R交换，使R[1..i]和R[i+1..n)分别变为记录个数增加1个的新有序区和记录个数减少1个的新无序区；* &lt;3&gt;.n-1趟结束，数组有序化了。
+</li></ul> <p>** Javascript代码实现: **
+</p> <pre class="wp-block-code"><code>function selectionSort(arr) {
+    var len = arr.length;
+    var minIndex, temp;
+    console.time('选择排序耗时');
+    for (var i = 0; i &lt; len - 1; i++) {
+        minIndex = i;
+        for (var j = i + 1; j &lt; len; j++) {
+            if (arr[j] &lt; arr[minIndex]) {     //寻找最小的数
+                minIndex = j;                 //将最小数的索引保存
+            }
+        }
+        temp = arr[i];
+        arr[i] = arr[minIndex];
+        arr[minIndex] = temp;
+    }
+    console.timeEnd('选择排序耗时');
+    return arr;
+}
+var arr=[3,44,38,5,47,15,36,26,27,2,46,4,19,50,48];
+console.log(selectionSort(arr));//[2, 3, 4, 5, 15, 19, 26, 27, 36, 38, 44, 46, 47, 48, 50]</code></pre> <p>** 选择排序动图演示： **
+</p> <figure class="wp-block-image"><img src="687474703a2f2f696d672e626c6f672e6373646e2e6e65742f3230313630393136313634373534303133.gif" alt="" class="wp-image-1033"></figure> <p>####<a href="https://github.com/damonare/Sorts#3%E7%AE%97%E6%B3%95%E5%88%86%E6%9E%90"></a>(3)算法分析
+</p> <ul><li>最佳情况：T(n) = O(n2)* 最差情况：T(n) = O(n2)* 平均情况：T(n) = O(n2)
+</li></ul> <p>##<a href="https://github.com/damonare/Sorts#3%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8Finsertion-sort"></a>3.插入排序（Insertion Sort）
+</p> <blockquote class="wp-block-quote">插入排序的代码实现虽然没有冒泡排序和选择排序那么简单粗暴，但它的原理应该是最容易理解的了，因为只要打过扑克牌的人都应该能够秒懂。当然，如果你说你打扑克牌摸牌的时候从来不按牌的大小整理牌，那估计这辈子你对插入排序的算法都不会产生任何兴趣了.....</blockquote> <p>####<a href="https://github.com/damonare/Sorts#1%E7%AE%97%E6%B3%95%E7%AE%80%E4%BB%8B-1"></a>(1)算法简介
+</p> <blockquote class="wp-block-quote">插入排序（Insertion-Sort）的算法描述是一种简单直观的排序算法。它的工作原理是通过构建有序序列，对于未排序数据，在已排序序列中从后向前扫描，找到相应位置并插入。插入排序在实现上，通常采用in-place排序（即只需用到O(1)的额外空间的排序），因而在从后向前扫描过程中，需要反复把已排序元素逐步向后挪位，为最新元素提供插入空间。</blockquote> <p>####<a href="https://github.com/damonare/Sorts#2%E7%AE%97%E6%B3%95%E6%8F%8F%E8%BF%B0%E5%92%8C%E5%AE%9E%E7%8E%B0-2"></a>(2)算法描述和实现
+</p> <p>一般来说，插入排序都采用in-place在数组上实现。具体算法描述如下：
+</p> <ul><li>&lt;1&gt;.从第一个元素开始，该元素可以认为已经被排序；* &lt;2&gt;.取出下一个元素，在已经排序的元素序列中从后向前扫描；* &lt;3&gt;.如果该元素（已排序）大于新元素，将该元素移到下一位置；* &lt;4&gt;.重复步骤3，直到找到已排序的元素小于或者等于新元素的位置；* &lt;5&gt;.将新元素插入到该位置后；* &lt;6&gt;.重复步骤2~5。
+</li></ul> <p>** Javascript代码实现: **
+</p> <pre class="wp-block-code"><code>function insertionSort(array) {
+    if (Object.prototype.toString.call(array).slice(8, -1) === 'Array') {
+        console.time('插入排序耗时：');
+        for (var i = 1; i &lt; array.length; i++) {
+            var key = array[i];
+            var j = i - 1;
+            while (j &gt;= 0 &amp;&amp; array[j] &gt; key) {
+                array[j + 1] = array[j];
+                j--;
+            }
+            array[j + 1] = key;
+        }
+        console.timeEnd('插入排序耗时：');
+        return array;
+    } else {
+        return 'array is not an Array!';
+    }
+}</code></pre> <blockquote class="wp-block-quote">** 改进插入排序： ** 查找插入位置时使用二分查找的方式</blockquote> <pre class="wp-block-code"><code>function binaryInsertionSort(array) {
+    if (Object.prototype.toString.call(array).slice(8, -1) === 'Array') {
+        console.time('二分插入排序耗时：');
+
+        for (var i = 1; i &lt; array.length; i++) {
+            var key = array[i], left = 0, right = i - 1;
+            while (left &lt;= right) {
+                var middle = parseInt((left + right) / 2);
+                if (key &lt; array[middle]) {
+                    right = middle - 1;
+                } else {
+                    left = middle + 1;
+                }
+            }
+            for (var j = i - 1; j &gt;= left; j--) {
+                array[j + 1] = array[j];
+            }
+            array[left] = key;
+        }
+        console.timeEnd('二分插入排序耗时：');
+
+        return array;
+    } else {
+        return 'array is not an Array!';
+    }
+}
+var arr=[3,44,38,5,47,15,36,26,27,2,46,4,19,50,48];
+console.log(binaryInsertionSort(arr));//[2, 3, 4, 5, 15, 19, 26, 27, 36, 38, 44, 46, 47, 48, 50]</code></pre> <blockquote class="wp-block-quote">改进前后对比：</blockquote> <figure class="wp-block-image"><img src="687474703a2f2f696d672e626c6f672e6373646e2e6e65742f3230313630393136313734363536313030.png" alt="" class="wp-image-1034"></figure> <p>** 插入排序动图演示: **
+</p> <figure class="wp-block-image"><img src="687474703a2f2f696d672e626c6f672e6373646e2e6e65742f3230313630393136313733383032353937.gif" alt="" class="wp-image-1035"></figure> <p>####<a href="https://github.com/damonare/Sorts#3%E7%AE%97%E6%B3%95%E5%88%86%E6%9E%90-1"></a>(3)算法分析
+</p> <ul><li>最佳情况：输入数组按升序排列。T(n) = O(n)* 最坏情况：输入数组按降序排列。T(n) = O(n2)* 平均情况：T(n) = O(n2)
+</li></ul> <p>###<a href="https://github.com/damonare/Sorts#4%E5%B8%8C%E5%B0%94%E6%8E%92%E5%BA%8Fshell-sort"></a>4.希尔排序（Shell Sort）
+</p> <blockquote class="wp-block-quote">1959年Shell发明； 第一个突破O(n^2)的排序算法；是简单插入排序的改进版；它与插入排序的不同之处在于，它会优先比较距离较远的元素。希尔排序又叫缩小增量排序</blockquote> <p>####<a href="https://github.com/damonare/Sorts#1%E7%AE%97%E6%B3%95%E7%AE%80%E4%BB%8B-2"></a>(1)算法简介
+</p> <blockquote class="wp-block-quote">希尔排序的核心在于间隔序列的设定。既可以提前设定好间隔序列，也可以动态的定义间隔序列。动态定义间隔序列的算法是《算法（第4版》的合著者Robert Sedgewick提出的。</blockquote> <p>####<a href="https://github.com/damonare/Sorts#2%E7%AE%97%E6%B3%95%E6%8F%8F%E8%BF%B0%E5%92%8C%E5%AE%9E%E7%8E%B0-3"></a>(2)算法描述和实现
+</p> <p>先将整个待排序的记录序列分割成为若干子序列分别进行直接插入排序，具体算法描述：
+</p> <ul><li>&lt;1&gt;. 选择一个增量序列t1，t2，...，tk，其中ti&gt;tj，tk=1；* &lt;2&gt;.按增量序列个数k，对序列进行k 趟排序；* &lt;3&gt;.每趟排序，根据对应的增量ti，将待排序列分割成若干长度为m 的子序列，分别对各子表进行直接插入排序。仅增量因子为1 时，整个序列作为一个表来处理，表长度即为整个序列的长度。
+</li></ul> <p>** Javascript代码实现： **
+</p> <pre class="wp-block-code"><code>function shellSort(arr) {
+    var len = arr.length,
+        temp,
+        gap = 1;
+    console.time('希尔排序耗时:');
+    while(gap &lt; len/5) {          //动态定义间隔序列
+        gap =gap*5+1;
+    }
+    for (gap; gap &gt; 0; gap = Math.floor(gap/5)) {
+        for (var i = gap; i &lt; len; i++) {
+            temp = arr[i];
+            for (var j = i-gap; j &gt;= 0 &amp;&amp; arr[j] &gt; temp; j-=gap) {
+                arr[j+gap] = arr[j];
+            }
+            arr[j+gap] = temp;
+        }
+    }
+    console.timeEnd('希尔排序耗时:');
+    return arr;
+}
+var arr=[3,44,38,5,47,15,36,26,27,2,46,4,19,50,48];
+console.log(shellSort(arr));//[2, 3, 4, 5, 15, 19, 26, 27, 36, 38, 44, 46, 47, 48, 50]
+</code></pre> <p>** 希尔排序图示（图片来源网络）： **
+</p> <figure class="wp-block-image"><img src="687474703a2f2f696d672e626c6f672e6373646e2e6e65742f3230313630393136323335323033343137.jpeg" alt="" class="wp-image-1036"></figure> <p>####<a href="https://github.com/damonare/Sorts#3%E7%AE%97%E6%B3%95%E5%88%86%E6%9E%90-2"></a>（3）算法分析
+</p> <ul><li>最佳情况：T(n) = O(nlog2 n)* 最坏情况：T(n) = O(nlog2 n)* 平均情况：T(n) =O(nlog n)
+</li></ul> <p>###<a href="https://github.com/damonare/Sorts#5%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8Fmerge-sort"></a>5.归并排序（Merge Sort）
+</p> <blockquote class="wp-block-quote">和选择排序一样，归并排序的性能不受输入数据的影响，但表现比选择排序好的多，因为始终都是O(n log n）的时间复杂度。代价是需要额外的内存空间。</blockquote> <p>####<a href="https://github.com/damonare/Sorts#1%E7%AE%97%E6%B3%95%E7%AE%80%E4%BB%8B-3"></a>(1)算法简介
+</p> <blockquote class="wp-block-quote">归并排序是建立在归并操作上的一种有效的排序算法。该算法是采用分治法（Divide and Conquer）的一个非常典型的应用。归并排序是一种稳定的排序方法。将已有序的子序列合并，得到完全有序的序列；即先使每个子序列有序，再使子序列段间有序。若将两个有序表合并成一个有序表，称为2-路归并。</blockquote> <p>####<a href="https://github.com/damonare/Sorts#2%E7%AE%97%E6%B3%95%E6%8F%8F%E8%BF%B0%E5%92%8C%E5%AE%9E%E7%8E%B0-4"></a>(2)算法描述和实现
+</p> <p>具体算法描述如下：
+</p> <ul><li>&lt;1&gt;.把长度为n的输入序列分成两个长度为n/2的子序列；* &lt;2&gt;.对这两个子序列分别采用归并排序；* &lt;3&gt;.将两个排序好的子序列合并成一个最终的排序序列。
+</li></ul> <p>** Javscript代码实现: **
+</p> <pre class="wp-block-code"><code>function mergeSort(arr) {  //采用自上而下的递归方法
+    var len = arr.length;
+    if(len &lt; 2) {
+        return arr;
+    }
+    var middle = Math.floor(len / 2),
+        left = arr.slice(0, middle),
+        right = arr.slice(middle);
+    return merge(mergeSort(left), mergeSort(right));
+}
+
+function merge(left, right)
+{
+    var result = [];
+    console.time('归并排序耗时');
+    while (left.length &amp;&amp; right.length) {
+        if (left[0] &lt;= right[0]) {
+            result.push(left.shift());
+        } else {
+            result.push(right.shift());
+        }
+    }
+
+    while (left.length)
+        result.push(left.shift());
+
+    while (right.length)
+        result.push(right.shift());
+    console.timeEnd('归并排序耗时');
+    return result;
+}
+var arr=[3,44,38,5,47,15,36,26,27,2,46,4,19,50,48];
+console.log(mergeSort(arr));
+</code></pre> <p>** 归并排序动图演示: **
+</p> <figure class="wp-block-image"><img src="687474703a2f2f696d672e626c6f672e6373646e2e6e65742f3230313630393137303031333236323534.gif" alt="" class="wp-image-1037"></figure> <p>####<a href="https://github.com/damonare/Sorts#3%E7%AE%97%E6%B3%95%E5%88%86%E6%9E%90-3"></a>(3)算法分析
+</p> <ul><li>最佳情况：T(n) = O(n)* 最差情况：T(n) = O(nlogn)* 平均情况：T(n) = O(nlogn)
+</li></ul> <p>###<a href="https://github.com/damonare/Sorts#6%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8Fquick-sort"></a>6.快速排序（Quick Sort）
+</p> <blockquote class="wp-block-quote">快速排序的名字起的是简单粗暴，因为一听到这个名字你就知道它存在的意义，就是快，而且效率高! 它是处理大数据最快的排序算法之一了。</blockquote> <p>####<a href="https://github.com/damonare/Sorts#1%E7%AE%97%E6%B3%95%E7%AE%80%E4%BB%8B-4"></a>(1)算法简介
+</p> <blockquote class="wp-block-quote">快速排序的基本思想：通过一趟排序将待排记录分隔成独立的两部分，其中一部分记录的关键字均比另一部分的关键字小，则可分别对这两部分记录继续进行排序，以达到整个序列有序。</blockquote> <p>####<a href="https://github.com/damonare/Sorts#2%E7%AE%97%E6%B3%95%E6%8F%8F%E8%BF%B0%E5%92%8C%E5%AE%9E%E7%8E%B0-5"></a>(2)算法描述和实现
+</p> <p>快速排序使用分治法来把一个串（list）分为两个子串（sub-lists）。具体算法描述如下：
+</p> <ul><li>&lt;1&gt;.从数列中挑出一个元素，称为 &quot;基准&quot;（pivot）；* &lt;2&gt;.重新排序数列，所有元素比基准值小的摆放在基准前面，所有元素比基准值大的摆在基准的后面（相同的数可以到任一边）。在这个分区退出之后，该基准就处于数列的中间位置。这个称为分区（partition）操作；* &lt;3&gt;.递归地（recursive）把小于基准值元素的子数列和大于基准值元素的子数列排序。
+</li></ul> <p>** Javascript代码实现： **
+</p> <pre class="wp-block-code"><code>/*方法说明：快速排序
+@param  array 待排序数组*/
+//方法一
+function quickSort(array, left, right) {
+    console.time('1.快速排序耗时');
+    if (Object.prototype.toString.call(array).slice(8, -1) === 'Array' &amp;&amp; typeof left === 'number' &amp;&amp; typeof right === 'number') {
+        if (left &lt; right) {
+            var x = array[right], i = left - 1, temp;
+            for (var j = left; j &lt;= right; j++) {
+                if (array[j] &lt;= x) {
+                    i++;
+                    temp = array[i];
+                    array[i] = array[j];
+                    array[j] = temp;
+                }
+            }
+            quickSort(array, left, i - 1);
+            quickSort(array, i + 1, right);
+        }
+        console.timeEnd('1.快速排序耗时');
+        return array;
+    } else {
+        return 'array is not an Array or left or right is not a number!';
+    }
+}
+
+//方法二
+var quickSort2 = function(arr) {
+    console.time('2.快速排序耗时');
+　　if (arr.length &lt;= 1) { return arr; }
+　　var pivotIndex = Math.floor(arr.length / 2);
+　　var pivot = arr.splice(pivotIndex, 1)[0];
+　　var left = [];
+　　var right = [];
+　　for (var i = 0; i &lt; arr.length; i++){
+　　　　if (arr[i] &lt; pivot) {
+　　　　　　left.push(arr[i]);
+　　　　} else {
+　　　　　　right.push(arr[i]);
+　　　　}
+　　}
+console.timeEnd('2.快速排序耗时');
+　　return quickSort2(left).concat([pivot], quickSort2(right));
+};
+
+var arr=[3,44,38,5,47,15,36,26,27,2,46,4,19,50,48];
+console.log(quickSort(arr,0,arr.length-1));//[2, 3, 4, 5, 15, 19, 26, 27, 36, 38, 44, 46, 47, 48, 50]
+console.log(quickSort2(arr));//[2, 3, 4, 5, 15, 19, 26, 27, 36, 38, 44, 46, 47, 48, 50]</code></pre> <p>** 快速排序动图演示： **
+</p> <figure class="wp-block-image"><img src="687474703a2f2f696d672e626c6f672e6373646e2e6e65742f3230313630393137303033303034393036.gif" alt="" class="wp-image-1038"></figure> <p>####<a href="https://github.com/damonare/Sorts#3%E7%AE%97%E6%B3%95%E5%88%86%E6%9E%90-4"></a>(3)算法分析
+</p> <ul><li>最佳情况：T(n) = O(nlogn)* 最差情况：T(n) = O(n2)* 平均情况：T(n) = O(nlogn)
+</li></ul> <p>###<a href="https://github.com/damonare/Sorts#7%E5%A0%86%E6%8E%92%E5%BA%8Fheap-sort"></a>7.堆排序（Heap Sort）
+</p> <blockquote class="wp-block-quote">堆排序可以说是一种利用堆的概念来排序的选择排序。</blockquote> <p>####<a href="https://github.com/damonare/Sorts#1%E7%AE%97%E6%B3%95%E7%AE%80%E4%BB%8B-5"></a>(1)算法简介
+</p> <blockquote class="wp-block-quote">堆排序（Heapsort）是指利用堆这种数据结构所设计的一种排序算法。堆积是一个近似完全二叉树的结构，并同时满足堆积的性质：即子结点的键值或索引总是小于（或者大于）它的父节点。</blockquote> <p>####<a href="https://github.com/damonare/Sorts#2%E7%AE%97%E6%B3%95%E6%8F%8F%E8%BF%B0%E5%92%8C%E5%AE%9E%E7%8E%B0-6"></a>(2)算法描述和实现
+</p> <p>具体算法描述如下：
+</p> <ul><li>&lt;1&gt;.将初始待排序关键字序列(R1,R2....Rn)构建成大顶堆，此堆为初始的无序区；* &lt;2&gt;.将堆顶元素R[1]与最后一个元素R[n]交换，此时得到新的无序区(R1,R2,......Rn-1)和新的有序区(Rn),且满足R[1,2...n-1]&lt;=R[n]；* &lt;3&gt;.由于交换后新的堆顶R[1]可能违反堆的性质，因此需要对当前无序区(R1,R2,......Rn-1)调整为新堆，然后再次将R[1]与无序区最后一个元素交换，得到新的无序区(R1,R2....Rn-2)和新的有序区(Rn-1,Rn)。不断重复此过程直到有序区的元素个数为n-1，则整个排序过程完成。
+</li></ul> <p>** Javascript代码实现： **
+</p> <pre class="wp-block-code"><code>/*方法说明：堆排序
+@param  array 待排序数组*/
+function heapSort(array) {
+    console.time('堆排序耗时');
+    if (Object.prototype.toString.call(array).slice(8, -1) === 'Array') {
+        //建堆
+        var heapSize = array.length, temp;
+        for (var i = Math.floor(heapSize / 2) - 1; i &gt;= 0; i--) {
+            heapify(array, i, heapSize);
+        }
+
+        //堆排序
+        for (var j = heapSize - 1; j &gt;= 1; j--) {
+            temp = array[0];
+            array[0] = array[j];
+            array[j] = temp;
+            heapify(array, 0, --heapSize);
+        }
+        console.timeEnd('堆排序耗时');
+        return array;
+    } else {
+        return 'array is not an Array!';
+    }
+}
+/*方法说明：维护堆的性质
+@param  arr 数组
+@param  x   数组下标
+@param  len 堆大小*/
+function heapify(arr, x, len) {
+    if (Object.prototype.toString.call(arr).slice(8, -1) === 'Array' &amp;&amp; typeof x === 'number') {
+        var l = 2 * x + 1, r = 2 * x + 2, largest = x, temp;
+        if (l &lt; len &amp;&amp; arr[l] &gt; arr[largest]) {
+            largest = l;
+        }
+        if (r &lt; len &amp;&amp; arr[r] &gt; arr[largest]) {
+            largest = r;
+        }
+        if (largest != x) {
+            temp = arr[x];
+            arr[x] = arr[largest];
+            arr[largest] = temp;
+            heapify(arr, largest, len);
+        }
+    } else {
+        return 'arr is not an Array or x is not a number!';
+    }
+}
+var arr=[91,60,96,13,35,65,46,65,10,30,20,31,77,81,22];
+console.log(heapSort(arr));//[10, 13, 20, 22, 30, 31, 35, 46, 60, 65, 65, 77, 81, 91, 96]
+</code></pre> <p>** 堆排序动图演示： **
+</p> <figure class="wp-block-image"><img src="687474703a2f2f696d672e626c6f672e6373646e2e6e65742f3230313630393137313035353032383533.gif" alt="" class="wp-image-1039"></figure> <p>####<a href="https://github.com/damonare/Sorts#3%E7%AE%97%E6%B3%95%E5%88%86%E6%9E%90-5"></a>(3)算法分析
+</p> <ul><li>最佳情况：T(n) = O(nlogn)* 最差情况：T(n) = O(nlogn)* 平均情况：T(n) = O(nlogn)
+</li></ul> <p>###<a href="https://github.com/damonare/Sorts#8%E8%AE%A1%E6%95%B0%E6%8E%92%E5%BA%8Fcounting-sort"></a>8.计数排序（Counting Sort）
+</p> <blockquote class="wp-block-quote">计数排序的核心在于将输入的数据值转化为键存储在额外开辟的数组空间中。 作为一种线性时间复杂度的排序，计数排序要求输入的数据必须是有确定范围的整数。</blockquote> <p>####<a href="https://github.com/damonare/Sorts#1%E7%AE%97%E6%B3%95%E7%AE%80%E4%BB%8B-6"></a>(1)算法简介
+</p> <blockquote class="wp-block-quote">计数排序(Counting sort)是一种稳定的排序算法。计数排序使用一个额外的数组C，其中第i个元素是待排序数组A中值等于i的元素的个数。然后根据数组C来将A中的元素排到正确的位置。它只能对整数进行排序。</blockquote> <p>####<a href="https://github.com/damonare/Sorts#2%E7%AE%97%E6%B3%95%E6%8F%8F%E8%BF%B0%E5%92%8C%E5%AE%9E%E7%8E%B0-7"></a>(2)算法描述和实现
+</p> <p>具体算法描述如下：
+</p> <ul><li>&lt;1&gt;. 找出待排序的数组中最大和最小的元素；* &lt;2&gt;. 统计数组中每个值为i的元素出现的次数，存入数组C的第i项；* &lt;3&gt;. 对所有的计数累加（从C中的第一个元素开始，每一项和前一项相加）；* &lt;4&gt;. 反向填充目标数组：将每个元素i放在新数组的第C(i)项，每放一个元素就将C(i)减去1。
+</li></ul> <p>** Javascript代码实现： **
+</p> <pre class="wp-block-code"><code>function countingSort(array) {
+    var len = array.length,
+        B = [],
+        C = [],
+        min = max = array[0];
+    console.time('计数排序耗时');
+    for (var i = 0; i &lt; len; i++) {
+        min = min &lt;= array[i] ? min : array[i];
+        max = max &gt;= array[i] ? max : array[i];
+        C[array[i]] = C[array[i]] ? C[array[i]] + 1 : 1;
+    }
+    for (var j = min; j &lt; max; j++) {
+        C[j + 1] = (C[j + 1] '' 0) + (C[j] '' 0);
+    }
+    for (var k = len - 1; k &gt;= 0; k--) {
+        B[C[array[k]] - 1] = array[k];
+        C[array[k]]--;
+    }
+    console.timeEnd('计数排序耗时');
+    return B;
+}
+var arr = [2, 2, 3, 8, 7, 1, 2, 2, 2, 7, 3, 9, 8, 2, 1, 4, 2, 4, 6, 9, 2];
+console.log(countingSort(arr)); //[1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 4, 4, 6, 7, 7, 8, 8, 9, 9]
+</code></pre> <p>** JavaScript动图演示： **
+</p> <figure class="wp-block-image"><img src="687474703a2f2f696d672e626c6f672e6373646e2e6e65742f3230313630393137313130363431343739.gif" alt="" class="wp-image-1040"></figure> <p>####<a href="https://github.com/damonare/Sorts#3%E7%AE%97%E6%B3%95%E5%88%86%E6%9E%90-6"></a>(3)算法分析
+</p> <blockquote class="wp-block-quote">当输入的元素是n 个0到k之间的整数时，它的运行时间是 O(n + k)。计数排序不是比较排序，排序的速度快于任何比较排序算法。由于用来计数的数组C的长度取决于待排序数组中数据的范围（等于待排序数组的最大值与最小值的差加上1），这使得计数排序对于数据范围很大的数组，需要大量时间和内存。</blockquote> <ul><li>最佳情况：T(n) = O(n+k)* 最差情况：T(n) = O(n+k)* 平均情况：T(n) = O(n+k)
+</li></ul> <p>###<a href="https://github.com/damonare/Sorts#9%E6%A1%B6%E6%8E%92%E5%BA%8Fbucket-sort"></a>9.桶排序（Bucket Sort）
+</p> <blockquote class="wp-block-quote">桶排序是计数排序的升级版。它利用了函数的映射关系，高效与否的关键就在于这个映射函数的确定。</blockquote> <p>####<a href="https://github.com/damonare/Sorts#1%E7%AE%97%E6%B3%95%E7%AE%80%E4%BB%8B-7"></a>(1)算法简介
+</p> <blockquote class="wp-block-quote">桶排序 (Bucket sort)的工作的原理：假设输入数据服从均匀分布，将数据分到有限数量的桶里，每个桶再分别排序（有可能再使用别的排序算法或是以递归方式继续使用桶排序进行排</blockquote> <p>####<a href="https://github.com/damonare/Sorts#2%E7%AE%97%E6%B3%95%E6%8F%8F%E8%BF%B0%E5%92%8C%E5%AE%9E%E7%8E%B0-8"></a>(2)算法描述和实现
+</p> <p>具体算法描述如下：
+</p> <ul><li>&lt;1&gt;.设置一个定量的数组当作空桶；* &lt;2&gt;.遍历输入数据，并且把数据一个一个放到对应的桶里去；* &lt;3&gt;.对每个不是空的桶进行排序；* &lt;4&gt;.从不是空的桶里把排好序的数据拼接起来。
+</li></ul> <p>** Javascript代码实现: **
+</p> <pre class="wp-block-code"><code>/*方法说明：桶排序
+@param  array 数组
+@param  num   桶的数量*/
+function bucketSort(array, num) {
+    if (array.length &lt;= 1) {
+        return array;
+    }
+    var len = array.length, buckets = [], result = [], min = max = array[0], regex = '/^[1-9]+[0-9]*$/', space, n = 0;
+    num = num '' ((num &gt; 1 &amp;&amp; regex.test(num)) ? num : 10);
+    console.time('桶排序耗时');
+    for (var i = 1; i &lt; len; i++) {
+        min = min &lt;= array[i] ? min : array[i];
+        max = max &gt;= array[i] ? max : array[i];
+    }
+    space = (max - min + 1) / num;
+    for (var j = 0; j &lt; len; j++) {
+        var index = Math.floor((array[j] - min) / space);
+        if (buckets[index]) {   //  非空桶，插入排序
+            var k = buckets[index].length - 1;
+            while (k &gt;= 0 &amp;&amp; buckets[index][k] &gt; array[j]) {
+                buckets[index][k + 1] = buckets[index][k];
+                k--;
+            }
+            buckets[index][k + 1] = array[j];
+        } else {    //空桶，初始化
+            buckets[index] = [];
+            buckets[index].push(array[j]);
+        }
+    }
+    while (n &lt; num) {
+        result = result.concat(buckets[n]);
+        n++;
+    }
+    console.timeEnd('桶排序耗时');
+    return result;
+}
+var arr=[3,44,38,5,47,15,36,26,27,2,46,4,19,50,48];
+console.log(bucketSort(arr,4));//[2, 3, 4, 5, 15, 19, 26, 27, 36, 38, 44, 46, 47, 48, 50]
+</code></pre> <p>** 桶排序图示（图片来源网络）： **
+</p> <figure class="wp-block-image"><img src="687474703a2f2f696d672e626c6f672e6373646e2e6e65742f3230313630393137313131393435393739.jpeg" alt="" class="wp-image-1041"></figure> <p>关于桶排序<a href="http://www.cnblogs.com/lonelyxmas/p/3561938.html">更多</a></p> <p>####<a href="https://github.com/damonare/Sorts#3%E7%AE%97%E6%B3%95%E5%88%86%E6%9E%90-7"></a>(3)算法分析
+</p> <blockquote class="wp-block-quote">桶排序最好情况下使用线性时间O(n)，桶排序的时间复杂度，取决与对各个桶之间数据进行排序的时间复杂度，因为其它部分的时间复杂度都为O(n)。很显然，桶划分的越小，各个桶之间的数据越少，排序所用的时间也会越少。但相应的空间消耗就会增大。</blockquote> <ul><li>最佳情况：T(n) = O(n+k)* 最差情况：T(n) = O(n+k)* 平均情况：T(n) = O(n2)
+</li></ul> <p>###<a href="https://github.com/damonare/Sorts#10%E5%9F%BA%E6%95%B0%E6%8E%92%E5%BA%8Fradix-sort"></a>10.基数排序（Radix Sort）
+</p> <blockquote class="wp-block-quote">基数排序也是非比较的排序算法，对每一位进行排序，从最低位开始排序，复杂度为O(kn),为数组长度，k为数组中的数的最大的位数；</blockquote> <p>####<a href="https://github.com/damonare/Sorts#1%E7%AE%97%E6%B3%95%E7%AE%80%E4%BB%8B-8"></a>(1)算法简介
+</p> <blockquote class="wp-block-quote">基数排序是按照低位先排序，然后收集；再按照高位排序，然后再收集；依次类推，直到最高位。有时候有些属性是有优先级顺序的，先按低优先级排序，再按高优先级排序。最后的次序就是高优先级高的在前，高优先级相同的低优先级高的在前。基数排序基于分别排序，分别收集，所以是稳定的。</blockquote> <p>####<a href="https://github.com/damonare/Sorts#2%E7%AE%97%E6%B3%95%E6%8F%8F%E8%BF%B0%E5%92%8C%E5%AE%9E%E7%8E%B0-9"></a>(2)算法描述和实现
+</p> <p>具体算法描述如下：
+</p> <ul><li>&lt;1&gt;.取得数组中的最大数，并取得位数；* &lt;2&gt;.arr为原始数组，从最低位开始取每个位组成radix数组；* &lt;3&gt;.对radix进行计数排序（利用计数排序适用于小范围数的特点）；
+</li></ul> <p>** Javascript代码实现： **
+</p> <pre class="wp-block-code"><code>/**
+ * 基数排序适用于：
+ *  (1)数据范围较小，建议在小于1000
+ *  (2)每个数值都要大于等于0
+ * @author xiazdong
+ * @param  arr 待排序数组
+ * @param  maxDigit 最大位数
+ */
+//LSD Radix Sort
+
+function radixSort(arr, maxDigit) {
+    var mod = 10;
+    var dev = 1;
+    var counter = [];
+    console.time('基数排序耗时');
+    for (var i = 0; i &lt; maxDigit; i++, dev *= 10, mod *= 10) {
+        for(var j = 0; j &lt; arr.length; j++) {
+            var bucket = parseInt((arr[j] % mod) / dev);
+            if(counter[bucket]== null) {
+                counter[bucket] = [];
+            }
+            counter[bucket].push(arr[j]);
+        }
+        var pos = 0;
+        for(var j = 0; j &lt; counter.length; j++) {
+            var value = null;
+            if(counter[j]!=null) {
+                while ((value = counter[j].shift()) != null) {
+                      arr[pos++] = value;
+                }
+          }
+        }
+    }
+    console.timeEnd('基数排序耗时');
+    return arr;
+}
+var arr = [3, 44, 38, 5, 47, 15, 36, 26, 27, 2, 46, 4, 19, 50, 48];
+console.log(radixSort(arr,2)); //[2, 3, 4, 5, 15, 19, 26, 27, 36, 38, 44, 46, 47, 48, 50]</code></pre> <p>** 基数排序LSD动图演示： **
+</p> <figure class="wp-block-image"><img src="687474703a2f2f696d672e626c6f672e6373646e2e6e65742f3230313630393137313233333133363539.gif" alt="" class="wp-image-1042"></figure> <p>####<a href="https://github.com/damonare/Sorts#3%E7%AE%97%E6%B3%95%E5%88%86%E6%9E%90-8"></a>(3)算法分析
+</p> <ul><li>最佳情况：T(n) = O(n * k)* 最差情况：T(n) = O(n * k)* 平均情况：T(n) = O(n * k)
+</li></ul> <p>基数排序有两种方法：
+</p> <ul><li>MSD 从高位开始进行排序* LSD 从低位开始进行排序
+</li></ul> <p>** 基数排序 vs 计数排序 vs 桶排序 **
+</p> <p>这三种排序算法都利用了桶的概念，但对桶的使用方法上有明显差异：
+</p> <ol><li>基数排序：根据键值的每位数字来分配桶2. 计数排序：每个桶只存储单一键值3. 桶排序：每个桶存储一定范围的数值
+</li></ol> <p>##<a href="https://github.com/damonare/Sorts#%E5%90%8E%E8%AE%B0"></a>后记
+</p> <blockquote class="wp-block-quote">十大排序算法的总结到这里就算告一段落了。博主总结完之后只有一个感觉，排序算法博大精深，前辈们用了数年甚至一辈子的心血研究出来的算法更值得我们推敲。站在十大算法的门前心里还是诚惶诚恐的，身为一个小学生，博主的总结难免会有所疏漏，欢迎各位批评指正。</blockquote></div> <footer class="page-edit"><div class="edit-link"><a href="https://github.com/saqqdy/saqqdy.github.io/edit/docs/docs/blog/frontend/jd-10-sorts-classic/index.md" target="_blank" rel="noopener noreferrer">帮助我们改善此页面！</a> <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></div> <div class="last-updated"><span class="prefix">最近更新:</span> <span class="time">2/26/2021, 8:10:27 PM</span></div></footer> <!----> </main></div><div class="global-ui"><!----></div></div>
+		<script src="/assets/js/app.1247472c.js" defer></script><script src="/assets/js/2.727eec30.js" defer></script><script src="/assets/js/304.9f3c39ab.js" defer></script>
+	</body>
+</html>
